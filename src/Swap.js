@@ -6,6 +6,8 @@ import TinderCard from "react-tinder-card";
 const Container = styled.section`
   background-color: #fc913a;
   font-size: 2rem;
+  height: 100%;
+  padding: 20px;
   @media screen and (min-width: 0px) {
     position: fixed;
   }
@@ -126,7 +128,7 @@ let charactersState = db;
 function Swap() {
   const [countPage, setCountPage] = useState(1);
   const [characters, setCharacters] = useState(db);
-  const [lastDirection, setLastDirection] = useState();
+  // const [lastDirection, setLastDirection] = useState();
   const childRefs = useMemo(
     () =>
       Array(db.length)
@@ -147,7 +149,7 @@ function Swap() {
     return;
   };
   const swiped = (direction, nameToDelete) => {
-    setLastDirection(direction);
+    // setLastDirection(direction);
     alreadyRemoved.push(nameToDelete);
   };
 

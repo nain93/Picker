@@ -24,10 +24,9 @@ const GlobalStyles = createGlobalStyle`
     }
     #root section{
         max-width: 720px;
-        height: 100%;
+        /* height: 100%; */
         width: 100%;
         margin: 0 auto;
-        padding: 20px;
     }
         @media screen and (min-width:320px) {
             #root{
