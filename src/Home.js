@@ -343,7 +343,9 @@ function Home() {
           </MenuContainer>
           <GridContainer>
             <Link to="/ready">
-              <GridLink>1</GridLink>
+              <GridLink>
+                테스트 카드 : 투표 준비화면으로 이동(일반선택)
+              </GridLink>
             </Link>
             <GridDesc>
               <span>코로나 뿌셔! 무슨 운동?</span>
@@ -355,8 +357,10 @@ function Home() {
               </div>
             </GridDesc>
 
-            <Link to="/">
-              <GridLink>2</GridLink>
+            <Link to="/ready/swap">
+              <GridLink>
+                테스트 카드 : 투표 화면으로 이동(스와이프선택)
+              </GridLink>
             </Link>
             <GridDesc>
               <span>도움이 된, 헬스 핫템!</span>

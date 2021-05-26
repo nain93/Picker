@@ -94,7 +94,7 @@ function Choice() {
   };
 
   const handleAPick = () => {
-    if (countPage === 11) {
+    if (countPage === 6) {
       //todo 결과페이지로 이동
       return;
     }
@@ -103,7 +103,7 @@ function Choice() {
   };
 
   const handleBPick = () => {
-    if (countPage === 11) {
+    if (countPage === 6) {
       //todo 결과페이지로 이동
       return;
     }
@@ -123,14 +123,14 @@ function Choice() {
         <span>이때 당신의 선택은?</span>
       </DescBox>
       <BtnBox>
-        <PickBtnLink onClick={handleAPick} to={countPage === 10 && "/result"}>
+        <PickBtnLink onClick={handleAPick} to={countPage === 5 && "/result"}>
           A. 버린다
         </PickBtnLink>
-        <PickBtnLink onClick={handleBPick} to={countPage === 10 && "/result"}>
+        <PickBtnLink onClick={handleBPick} to={countPage === 5 && "/result"}>
           B. 좋아한다
         </PickBtnLink>
       </BtnBox>
-      <Count>{countPage}/10</Count>
+      <Count>{countPage}/5</Count>
     </Container>
   );
 }

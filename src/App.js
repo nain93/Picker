@@ -16,8 +16,8 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/fun" component={Swap} />
-          <Route path="/my" component={Swap} />
+          {/* <Route path="/fun" component={Swap} />
+          <Route path="/my" component={Swap} /> */}
           <Route path="/ready" exact component={Ready} />
           <Route path="/ready/swap" component={Swap} />
           <Route path="/ready/choice" component={Choice} />
