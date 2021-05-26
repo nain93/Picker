@@ -96,11 +96,12 @@ const ResultBox = styled.div`
   }
 `;
 
-const Divider = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  border: 1px solid rgba(1, 1, 1, 0.3);
-`;
+// const Divider = styled.div`
+//   width: 100%;
+//   margin: 0 auto;
+//   border: 1px solid rgba(1, 1, 1, 0.3);
+// `;
+
 //! page1 css
 
 const AwardContainer = styled.div`
@@ -130,19 +131,21 @@ const AwardBox = styled.span`
 const ReactBtnBox = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   button {
+    margin: 0 1%;
     font-size: 1.2rem;
     font-weight: 600;
     @media screen and (max-width: 450px) {
       font-size: 0.8rem;
+      width: 40%;
     }
     @media screen and (min-width: 768px) {
       font-size: 1rem;
     }
     background-color: white;
-    width: 48%;
+    width: 28%;
     height: 7vh;
     border: 1px solid #c2f43b;
     border-radius: 10px;
@@ -158,13 +161,16 @@ const ReactBtnBox = styled.div`
 const ResultBtnBox = styled(Link)`
   width: 100%;
   button {
-    width: 100%;
+    width: 60%;
     height: 7vh;
     border-radius: 10px;
     margin-top: 5%;
     background-color: #fc913a;
     font-size: 1.2rem;
     font-weight: 600;
+    @media screen and (max-width: 450px) {
+      width: 100%;
+    }
     @media screen and (max-width: 720px) {
       font-size: 1rem;
     }

@@ -1,5 +1,5 @@
 import GlobalStyles from "./GolbalStyles";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Swap from "./Swap";
 import Home from "./Home";
 import Ready from "./Ready";

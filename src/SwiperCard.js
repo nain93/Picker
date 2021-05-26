@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 // import "swiper/components/navigation/navigation.scss";
 // import "swiper/components/pagination/pagination.scss";
 import "swiper/swiper.scss";
 import styled from "styled-components";
-import { useState } from "react/cjs/react.development";
 
 const SwiperStyle = styled(Swiper)`
   color: "black";
