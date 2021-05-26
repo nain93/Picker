@@ -2,9 +2,10 @@ import React, { useMemo, useState } from "react";
 import { IoIosArrowBack, IoIosRedo, IoIosUndo } from "react-icons/io";
 import styled from "styled-components";
 import TinderCard from "react-tinder-card";
+import { useHistory } from "react-router";
 
 const Container = styled.section`
-  background-color: #fc913a;
+  background-color: #ffc000;
   font-size: 2rem;
   height: 100%;
   padding: 20px;
@@ -19,11 +20,15 @@ const Container = styled.section`
   }
 `;
 
-const Nav = styled.div`
+const GobackBtn = styled.button`
+  border: none;
+  background-color: inherit;
   width: 100%;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: inherit;
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
   cursor: pointer;
 `;
 
@@ -129,6 +134,12 @@ function Swap() {
   const [countPage, setCountPage] = useState(1);
   const [characters, setCharacters] = useState(db);
   // const [lastDirection, setLastDirection] = useState();
+  const history = useHistory();
+
+  const handleGoback = () => {
+    history.goBack(1);
+  };
+
   const childRefs = useMemo(
     () =>
       Array(db.length)
@@ -178,10 +189,10 @@ function Swap() {
 
   return (
     <Container>
-      <Nav>
+      <GobackBtn onClick={handleGoback}>
         <IoIosArrowBack />
         뒤로
-      </Nav>
+      </GobackBtn>
       <Title>Q)당신의 연애스타일은..?</Title>
       <TinderBox className="cardContainer">
         {characters.map((character, index) => (

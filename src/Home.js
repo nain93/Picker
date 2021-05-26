@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Nav from "./Nav";
+import { BiShare } from "react-icons/bi";
+import { FaHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const LongContainer = styled.div`
   display: flex;
@@ -26,18 +29,72 @@ const MainContent = styled.div`
   border-radius: 15px;
   width: 100%;
   margin: 0 auto;
+  position: relative;
+`;
+
+const MainDesc = styled.div`
+  width: 100%;
+  height: 35%;
+  @media screen and (max-width: 320px) {
+    height: auto;
+  }
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 15px 15px;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  padding: 10px 4%;
+  bottom: 0;
+  span,
+  svg {
+    margin: 7px 0;
+    margin-right: 7px;
+  }
+  > div {
+    display: flex;
+  }
 `;
 
 const OtherContentBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  div {
-    margin-top: 20px;
-    border-radius: 15px;
-    width: 48%;
-    height: 30vh;
-    border: 1px solid black;
+  position: relative;
+  flex-wrap: wrap;
+`;
+
+const OtherContentLink = styled(Link)`
+  margin-top: 20px;
+  border-radius: 15px;
+  width: 48%;
+  height: 30vh;
+  border: 1px solid black;
+`;
+
+const OtherDesc = styled.div`
+  width: 48%;
+  height: 25%;
+  @media screen and (max-width: 720px) {
+    height: auto;
+  }
+
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 15px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  padding: 10px 3%;
+  span,
+  svg {
+    margin: 5px 0;
+    margin-right: 5px;
+  }
+  > div {
+    display: flex;
   }
 `;
 
@@ -62,6 +119,9 @@ const MorePickBtn = styled.button`
   font-weight: 600;
   font-size: 1.2rem;
   grid-column: 1;
+  @media screen and (max-width: 320px) {
+    font-size: small;
+  }
 `;
 
 const Divider = styled.div`
@@ -82,12 +142,15 @@ const MenuBtn = styled.button`
   color: white;
   font-weight: 600;
   font-size: 1.2rem;
-  margin-right: 20px;
-  background-color: #fc913a;
-  border: 1px solid #fc913a;
+  margin-right: 3%;
+  background-color: #ffc000;
+  border: none;
   width: 60px;
   height: 60px;
   border-radius: 30px;
+  @media screen and (max-width: 320px) {
+    margin-right: 0;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,20 +159,48 @@ const MenuBtn = styled.button`
 
 const GridContainer = styled.div`
   display: grid;
+  color: black;
   grid-template-columns: repeat(2, minmax(120px, 1fr));
-  grid-template-rows: repeat(2, minmax(250px, 1fr));
+  grid-template-rows: repeat(4);
   gap: 15px;
+  @media screen and (max-width: 320px) {
+    gap: 2px;
+  }
   margin-top: 40px;
-  div {
+  > a div:nth-child(2n-1) {
+    /* position: relative; */
     border: 1px solid black;
     border-radius: 15px;
+    min-height: 250px;
+  }
+  > a:nth-child(3) {
+    grid-row: 1;
+    grid-column: 2/3;
+  }
+  > a:nth-child(7) {
+    grid-row: 3;
+    grid-column: 2/3;
   }
 `;
 
+const GridLink = styled.div``;
+
+const GridDesc = styled.div`
+  div {
+    display: flex;
+    align-items: center;
+    margin-top: 2%;
+    svg {
+      margin: 0px 1%;
+    }
+  }
+`;
 //! page2 css
+
 function Home() {
   const [pickTopCount, setPickTopCount] = useState(1);
   const [pickBottomCount, setPickBottomCount] = useState(1);
+  const [clickMenu, setClickMenu] = useState("");
 
   const handleMorePickTop = () => {
     if (pickTopCount === 3) {
@@ -126,6 +217,11 @@ function Home() {
     }
     setPickBottomCount((pickCount) => pickCount + 1);
   };
+
+  const handleFilterClick = (e) => {
+    const { value } = e.target;
+    setClickMenu(value);
+  };
   return (
     <>
       <LongContainer>
@@ -133,15 +229,50 @@ function Home() {
         <Container>
           <Title>지금 떠오르는 PICK!</Title>
           <MainBox>
-            <MainContent></MainContent>
+            <Link to="/">
+              <MainContent>
+                <MainDesc>
+                  <span>내 안에 꼰대가??!</span>
+                  <div>
+                    <FaHeart />
+                    <span>1,456</span>
+
+                    <BiShare />
+                    <span>150</span>
+                  </div>
+                </MainDesc>
+              </MainContent>
+            </Link>
+
             <OtherContentBox>
-              <div></div>
-              <div></div>
+              <OtherContentLink to="/">
+                <OtherDesc>
+                  <span>나의 연애 MBTI는..?</span>
+                  <div>
+                    <FaHeart />
+                    <span>1,456</span>
+                    <BiShare />
+                    <span>150</span>
+                  </div>
+                </OtherDesc>
+              </OtherContentLink>
+
+              <OtherContentLink to="/">
+                <OtherDesc>
+                  <span>이번엔 어떤 정책을?!</span>
+                  <div>
+                    <FaHeart />
+                    <span>1,456</span>
+                    <BiShare />
+                    <span>150</span>
+                  </div>
+                </OtherDesc>
+              </OtherContentLink>
             </OtherContentBox>
           </MainBox>
           <BtnBox>
             <MorePickBtn onClick={handleMorePickTop}>
-              <h2>인기 PICK 더 보기 {pickTopCount}/3</h2>
+              <span>인기 PICK 더 보기 {pickTopCount}/3</span>
             </MorePickBtn>
           </BtnBox>
         </Container>
@@ -149,20 +280,123 @@ function Home() {
           <Divider />
           <Title>이번에는 무슨 PICK?</Title>
           <MenuContainer>
-            <MenuBtn>전체</MenuBtn>
-            <MenuBtn>운동</MenuBtn>
-            <MenuBtn>연애</MenuBtn>
-            <MenuBtn>정치</MenuBtn>
+            <MenuBtn
+              onClick={handleFilterClick}
+              value="All"
+              style={
+                clickMenu === "All"
+                  ? {
+                      backgroundColor: "white",
+                      color: "black",
+                      border: "1px solid red",
+                    }
+                  : {}
+              }
+            >
+              전체
+            </MenuBtn>
+            <MenuBtn
+              onClick={handleFilterClick}
+              value="Exr"
+              style={
+                clickMenu === "Exr"
+                  ? {
+                      backgroundColor: "white",
+                      color: "black",
+                      border: "1px solid red",
+                    }
+                  : {}
+              }
+            >
+              운동
+            </MenuBtn>
+            <MenuBtn
+              onClick={handleFilterClick}
+              value="love"
+              style={
+                clickMenu === "love"
+                  ? {
+                      backgroundColor: "white",
+                      color: "black",
+                      border: "1px solid red",
+                    }
+                  : {}
+              }
+            >
+              연애
+            </MenuBtn>
+            <MenuBtn
+              onClick={handleFilterClick}
+              value="other"
+              style={
+                clickMenu === "other"
+                  ? {
+                      backgroundColor: "white",
+                      color: "black",
+                      border: "1px solid red",
+                    }
+                  : {}
+              }
+            >
+              정치
+            </MenuBtn>
           </MenuContainer>
           <GridContainer>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
+            <Link to="/ready">
+              <GridLink>1</GridLink>
+            </Link>
+            <GridDesc>
+              <span>코로나 뿌셔! 무슨 운동?</span>
+              <div>
+                <FaHeart />
+                <span>1,456</span>
+                <BiShare />
+                <span>150</span>
+              </div>
+            </GridDesc>
+
+            <Link to="/">
+              <GridLink>2</GridLink>
+            </Link>
+            <GridDesc>
+              <span>도움이 된, 헬스 핫템!</span>
+              <div>
+                <FaHeart />
+                <span>1,456</span>
+                <BiShare />
+                <span>150</span>
+              </div>
+            </GridDesc>
+
+            <Link to="/">
+              <GridLink>3</GridLink>
+            </Link>
+            <GridDesc>
+              <span>점심시간엔 무슨 운동?</span>
+              <div>
+                <FaHeart />
+                <span>1,456</span>
+                <BiShare />
+                <span>150</span>
+              </div>
+            </GridDesc>
+
+            <Link to="/">
+              <GridLink>4</GridLink>
+            </Link>
+            <GridDesc>
+              <span>헬린이! 구출 대작전</span>
+              <div>
+                <FaHeart />
+                <span>1,456</span>
+                <BiShare />
+                <span>150</span>
+              </div>
+            </GridDesc>
           </GridContainer>
           <BtnBox>
             <MorePickBtn onClick={handleMorePickBottom}>
-              <h2>운동 PICK 더 보기 {pickBottomCount}/3</h2>
+              <span>운동 PICK 더 보기 {pickBottomCount}/3</span>
             </MorePickBtn>
           </BtnBox>
         </Container>

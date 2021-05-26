@@ -28,6 +28,10 @@ const GlobalStyles = createGlobalStyle`
         width: 100%;
         margin: 0 auto;
     }
+        @media screen and (min-width:0px){
+      
+
+        }
         @media screen and (min-width:320px) {
             #root{
                 height:100%;
