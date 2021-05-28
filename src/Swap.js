@@ -2,7 +2,8 @@ import React, { useMemo, useState } from "react";
 import { IoIosArrowBack, IoIosRedo, IoIosUndo } from "react-icons/io";
 import styled from "styled-components";
 import TinderCard from "react-tinder-card";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 const Container = styled.section`
   background-color: #ffc000;
@@ -72,7 +73,7 @@ const SwapBtnBox = styled.div`
   justify-content: space-around;
 `;
 
-const SwapBtn = styled.button`
+const SwapBtn = styled(Link)`
   border: 0;
   background: inherit;
   color: white;
@@ -136,6 +137,7 @@ function Swap() {
   const [lastDirection, setLastDirection] = useState();
   const [swaping, setSwaping] = useState(false);
   const history = useHistory();
+  const { pathname } = useLocation();
 
   const handleGoback = () => {
     history.goBack(1);
@@ -224,11 +226,17 @@ function Swap() {
 
       <Count>{countPage}/5</Count>
       <SwapBtnBox>
-        <SwapBtn onClick={handleLeftSwap}>
+        <SwapBtn
+          to={countPage === 5 ? "/result" : pathname}
+          onClick={handleLeftSwap}
+        >
           <IoIosUndo />
           NOT
         </SwapBtn>
-        <SwapBtn onClick={handleRightSwap}>
+        <SwapBtn
+          to={countPage === 5 ? "/result" : pathname}
+          onClick={handleRightSwap}
+        >
           <IoIosRedo />
           YES
         </SwapBtn>

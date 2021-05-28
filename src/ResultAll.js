@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
 import styled from "styled-components";
 import resultImg from "./img/result/result1.png";
 
