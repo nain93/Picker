@@ -23,7 +23,7 @@ const Container = styled.section`
 const Title = styled.h1`
   color: black;
   text-align: center;
-  margin: 40px 0px;
+  margin: 5% 0px;
 `;
 
 const MainContent = styled.div`
@@ -46,7 +46,8 @@ const MainContent = styled.div`
 const BtnBox = styled.div`
   width: 100%;
   border-radius: 15px;
-  padding: 20px;
+  padding-top: 3%;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,10 +60,7 @@ const MorePickBtn = styled(Link)`
   width: 70%;
   height: 5vh;
   background-color: white;
-  cursor: pointer;
-  margin: 10% 0px;
-  font-weight: 600;
-  grid-column: 1;
+  margin: 5% 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,7 +107,7 @@ const AwardContainer = styled.div`
   text-align: center;
   width: 100%;
   margin: 0 auto;
-  padding: 16%;
+  padding: 10%;
   button {
     border: none;
     cursor: pointer;
@@ -133,19 +131,24 @@ const ReactBtnBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 7%;
   button {
     margin: 0 1%;
     font-size: 1.2rem;
     font-weight: 600;
-    @media screen and (max-width: 450px) {
+
+    @media screen and (min-width: 0px) {
       font-size: 0.8rem;
-      width: 40%;
+      width: 60%;
     }
     @media screen and (min-width: 768px) {
       font-size: 1rem;
+      width: 45%;
+    }
+    @media screen and (min-width: 1024px) {
+      width: 27%;
     }
     background-color: white;
-    width: 28%;
     height: 7vh;
     border: 1px solid #c2f43b;
     border-radius: 10px;
@@ -159,21 +162,23 @@ const ReactBtnBox = styled.div`
 `;
 
 const ResultBtnBox = styled(Link)`
-  width: 100%;
-  button {
-    width: 60%;
-    height: 7vh;
-    border-radius: 10px;
-    margin-top: 5%;
-    background-color: #fc913a;
-    font-size: 1.2rem;
-    font-weight: 600;
-    @media screen and (max-width: 450px) {
-      width: 100%;
-    }
-    @media screen and (max-width: 720px) {
-      font-size: 1rem;
-    }
+  height: 7vh;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #fc913a;
+  @media screen and (min-width: 0px) {
+    width: 85%;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 1rem;
+    width: 75%;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 48%;
+    font-size: 1.5rem;
   }
 `;
 //! page2 css
@@ -201,8 +206,6 @@ const SlideHeader = styled.div`
   text-align: center;
   margin: 5% 0px;
 `;
-
-const SwiperBox = styled.div``;
 
 //! page3 css
 function Result() {
@@ -243,9 +246,11 @@ function Result() {
               <span>12</span>
             </button>
           </ReactBtnBox>
-          <ResultBtnBox to="/resultAll">
-            <button>다른 결과 확인</button>
-          </ResultBtnBox>
+          <BtnBox>
+            <ResultBtnBox to="/resultAll">
+              <span>다른 결과 확인</span>
+            </ResultBtnBox>
+          </BtnBox>
         </AwardContainer>
 
         <Container>
@@ -257,9 +262,9 @@ function Result() {
           <SlideHeader>
             <span>이번엔?! 무슨 PICK</span>
           </SlideHeader>
-          <SwiperBox>
-            <SwiperCard />
-          </SwiperBox>
+
+          <SwiperCard />
+
           <BtnBox>
             <MorePickBtn to="/">
               <span>다른 PICK 해보기</span>

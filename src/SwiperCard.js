@@ -20,21 +20,28 @@ function SwiperCard() {
     slidesPerView: 3.5,
   });
 
-  useEffect(() => {
-    if (window.innerWidth > 320) {
+  const handleResize = () => {
+    if (window.innerWidth > 720) {
+      setSwiperSetting({
+        slidesPerView: 3.5,
+      });
+      return;
+    } else if (window.innerWidth > 320) {
       setSwiperSetting({
         slidesPerView: 2,
       });
       return;
-    } else if (window.innerWidth > 720) {
-      setSwiperSetting({
-        slidesPerView: 3.5,
-      });
     } else {
       setSwiperSetting({
         slidesPerView: 1,
       });
+      return;
     }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [swiperSetting]);
 
   return (

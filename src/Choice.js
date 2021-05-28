@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import styled from "styled-components";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
 const Container = styled.section`
@@ -87,6 +87,7 @@ const PickBtnLink = styled(Link)`
 
 function Choice() {
   const [countPage, setCountPage] = useState(1);
+  const { pathname } = useLocation();
   const history = useHistory();
 
   const handleGoback = () => {
@@ -123,10 +124,16 @@ function Choice() {
         <span>이때 당신의 선택은?</span>
       </DescBox>
       <BtnBox>
-        <PickBtnLink onClick={handleAPick} to={countPage === 5 && "/result"}>
+        <PickBtnLink
+          onClick={handleAPick}
+          to={countPage === 5 ? "/result" : pathname}
+        >
           A. 버린다
         </PickBtnLink>
-        <PickBtnLink onClick={handleBPick} to={countPage === 5 && "/result"}>
+        <PickBtnLink
+          onClick={handleBPick}
+          to={countPage === 5 ? "/result" : pathname}
+        >
           B. 좋아한다
         </PickBtnLink>
       </BtnBox>

@@ -4,11 +4,27 @@ import Nav from "./Nav";
 import { BiShare } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import bannerImg from "./img/banner.png";
 
 const LongContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  @media screen and (min-width: 0px) {
+    button {
+      font-size: 0.6rem;
+    }
+  }
+  @media screen and (min-width: 320px) {
+    button {
+      font-size: 0.8rem;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    button {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 const Container = styled.section`
@@ -127,9 +143,13 @@ const MorePickBtn = styled.button`
 const Divider = styled.div`
   width: 100%;
   margin: 0 auto;
-  border: 1px solid rgba(1, 1, 1, 0.3);
 `;
 //! page1 css
+
+const ImgBox = styled.img`
+  width: 100%;
+  object-fit: cover;
+`;
 
 const MenuContainer = styled.div`
   width: 100%;
@@ -277,7 +297,9 @@ function Home() {
           </BtnBox>
         </Container>
         <Container>
-          <Divider />
+          <Divider>
+            <ImgBox src={bannerImg} alt="banner" />
+          </Divider>
           <Title>이번에는 무슨 PICK?</Title>
           <MenuContainer>
             <MenuBtn

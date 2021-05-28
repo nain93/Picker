@@ -133,7 +133,8 @@ let charactersState = db;
 function Swap() {
   const [countPage, setCountPage] = useState(1);
   const [characters, setCharacters] = useState(db);
-  // const [lastDirection, setLastDirection] = useState();
+  const [lastDirection, setLastDirection] = useState();
+  const [swaping, setSwaping] = useState(false);
   const history = useHistory();
 
   const handleGoback = () => {
@@ -160,7 +161,14 @@ function Swap() {
     return;
   };
   const swiped = (direction, nameToDelete) => {
-    // setLastDirection(direction);
+    if (countPage === 5) {
+      //todo 결과페이지로 이동
+      return;
+    }
+    if (swaping) {
+      return;
+    }
+    setLastDirection(direction);
     alreadyRemoved.push(nameToDelete);
   };
 
@@ -173,16 +181,20 @@ function Swap() {
   const handleLeftSwap = () => {
     if (countPage === 5) {
       //todo 결과페이지로 이동
+      console.log("return");
       return;
     }
+    setSwaping(true);
     swipe("left");
     setCountPage((countPage) => countPage + 1);
   };
 
   const handleRightSwap = () => {
     if (countPage === 5) {
+      console.log("return");
       return;
     }
+    setSwaping(true);
     swipe("right");
     setCountPage((countPage) => countPage + 1);
   };
