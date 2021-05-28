@@ -7,6 +7,7 @@ import Choice from "./Choice";
 import Result from "./Result";
 import ResultAll from "./ResultAll";
 import PageNotFound from "./PageNotFound";
+import Ready2 from "./Ready2";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           {/* <Route path="/fun" component={Swap} />
           <Route path="/my" component={Swap} /> */}
           <Route path="/ready" exact component={Ready} />
+          <Route path="/ready2" exact component={Ready2} />
           <Route path="/ready/swap" component={Swap} />
           <Route path="/ready/choice" component={Choice} />
           <Route path="/result" component={Result} />

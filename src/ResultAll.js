@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";

@@ -379,9 +379,9 @@ function Home() {
               </div>
             </GridDesc>
 
-            <Link to="/ready/swap">
+            <Link to="/ready2">
               <GridLink>
-                테스트 카드 : 투표 화면으로 이동(스와이프선택)
+                테스트 카드 : 투표 준비화면으로 이동(스와이프선택)
               </GridLink>
             </Link>
             <GridDesc>
