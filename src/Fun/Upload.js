@@ -20,7 +20,7 @@ const Container = styled.section`
     position: fixed;
     font-size: 1.5rem;
     button {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
   }
   @media screen and (min-width: 768px) {
