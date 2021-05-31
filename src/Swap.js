@@ -10,14 +10,16 @@ const Container = styled.section`
   font-size: 2rem;
   height: 100%;
   padding: 20px;
-  @media screen and (min-width: 0px) {
-    position: fixed;
-  }
-  @media screen and(min-width:320px) {
-    position: fixed;
-  }
-  @media screen and (min-width: 768px) {
+
+  @media screen and (max-width: 1024px) {
     position: static;
+  }
+  @media screen and (max-width: 767px) {
+    position: fixed;
+  }
+  @media screen and (max-width: 320px) {
+    position: fixed;
+    font-size: 1.5rem;
   }
 `;
 
@@ -26,6 +28,9 @@ const GobackBtn = styled.button`
   background-color: inherit;
   width: 100%;
   font-size: 1.5rem;
+  @media screen and (max-width: 320px) {
+    font-size: 1rem;
+  }
   font-weight: 600;
   color: inherit;
   display: flex;
@@ -40,7 +45,7 @@ const Title = styled.div`
   @media screen and (min-width: 320px) {
     margin: 50px;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     margin: 100px;
   }
   text-align: center;
@@ -48,10 +53,14 @@ const Title = styled.div`
 
 const Tinder = styled.div`
   @media screen and (min-width: 0px) {
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
   }
-  @media screen and (min-width: 320px) {
+  @media screen and (min-width: 321px) {
+    height: 240px;
+    width: 240px;
+  }
+  @media screen and (min-width: 768px) {
     height: 320px;
     width: 320px;
   }
@@ -80,8 +89,12 @@ const SwapBtn = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 2rem;
   cursor: pointer;
+  font-size: 2rem;
+
+  @media screen and (max-width: 320px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const TinderBox = styled.div`

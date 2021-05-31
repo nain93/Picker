@@ -10,20 +10,18 @@ const LongContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  @media screen and (min-width: 0px) {
+  font-size: 1.5rem;
+  @media screen and (max-width: 768px) {
+    button {
+      font-size: 1rem;
+    }
+    font-size: 1rem;
+  }
+  @media screen and (max-width: 320px) {
     button {
       font-size: 0.6rem;
     }
-  }
-  @media screen and (min-width: 320px) {
-    button {
-      font-size: 0.8rem;
-    }
-  }
-  @media screen and (min-width: 768px) {
-    button {
-      font-size: 1.5rem;
-    }
+    font-size: 0.6rem;
   }
 `;
 
@@ -34,7 +32,10 @@ const Container = styled.section`
 const Title = styled.h1`
   color: black;
   font-size: 1.5rem;
-  margin: 40px 0px;
+  @media screen and (max-width: 320px) {
+    font-size: 1rem;
+  }
+  margin: 10% 0px;
 `;
 
 const MainBox = styled.div``;
@@ -56,7 +57,6 @@ const MainDesc = styled.div`
   }
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 0 0 15px 15px;
-  font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,7 +82,7 @@ const OtherContentBox = styled.div`
 `;
 
 const OtherContentLink = styled(Link)`
-  margin-top: 20px;
+  margin-top: 5%;
   border-radius: 15px;
   width: 48%;
   height: 30vh;
@@ -91,7 +91,7 @@ const OtherContentLink = styled(Link)`
 
 const OtherDesc = styled.div`
   width: 48%;
-  height: 25%;
+  height: 35%;
   @media screen and (max-width: 720px) {
     height: auto;
   }
@@ -131,7 +131,7 @@ const MorePickBtn = styled.button`
   height: 5vh;
   background-color: white;
   cursor: pointer;
-  margin: 50px 0px;
+  margin: 5% 0px;
   font-weight: 600;
   font-size: 1.2rem;
   grid-column: 1;
@@ -142,6 +142,7 @@ const MorePickBtn = styled.button`
 
 const Divider = styled.div`
   width: 100%;
+  max-width: 720px;
   margin: 0 auto;
 `;
 //! page1 css
@@ -296,10 +297,10 @@ function Home() {
             </MorePickBtn>
           </BtnBox>
         </Container>
+        <Divider>
+          <ImgBox src={bannerImg} alt="banner" />
+        </Divider>
         <Container>
-          <Divider>
-            <ImgBox src={bannerImg} alt="banner" />
-          </Divider>
           <Title>이번에는 무슨 PICK?</Title>
           <MenuContainer>
             <MenuBtn

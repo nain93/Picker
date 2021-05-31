@@ -17,8 +17,10 @@ const Container = styled.div`
 `;
 
 const Item = styled.div`
+  padding: 0px 3%;
   padding-bottom: 5px;
-  border-bottom: 2px solid ${(props) => (props.current ? "white" : "inherit")};
+  border-bottom: 5px solid
+    ${(props) => (props.current ? "rgba(255,255,255,0.8)" : "inherit")};
 `;
 
 function Nav() {
@@ -26,13 +28,13 @@ function Nav() {
   return (
     <Container>
       <Item current={pathname === "/"}>
-        <Link to="/">NOW</Link>
+        <Link to="/">NOW.</Link>
       </Item>
       <Item current={pathname === "/fun"}>
-        <Link to="/fun">FUN</Link>
+        <Link to="/fun">FUN.</Link>
       </Item>
       <Item current={pathname === "/my"}>
-        <Link to="/my">MY</Link>
+        <Link to="/my">MY.</Link>
       </Item>
     </Container>
   );

@@ -21,7 +21,7 @@ function SwiperCard() {
   });
 
   const handleResize = () => {
-    if (window.innerWidth > 720) {
+    if (window.innerWidth > 768) {
       setSwiperSetting({
         slidesPerView: 3.5,
       });
@@ -39,6 +39,9 @@ function SwiperCard() {
     }
   };
 
+  useEffect(() => {
+    handleResize();
+  }, []);
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

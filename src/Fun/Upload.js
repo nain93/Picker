@@ -36,7 +36,6 @@ const GobackBtn = styled.button`
   border: none;
   background-color: inherit;
   width: 100%;
-  font-size: 1.5rem;
   font-weight: 600;
   color: black;
   display: flex;
@@ -44,63 +43,59 @@ const GobackBtn = styled.button`
   cursor: pointer;
 `;
 
-const DetailContentBox = styled.div`
+const DetailContentBox = styled.form`
   width: 100%;
   height: 50%;
   @media screen and (max-width: 320px) {
     height: 40%;
   }
-  padding: 0 12%;
-  div {
+  padding: 0 4%;
+  input {
     border: 1px solid black;
     width: 100%;
-    height: 100%;
-    margin-top: 10%;
-    border-radius: 15px;
-  }
-`;
-
-const DetailDesc = styled.div`
-  color: black;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  margin: 5% 10px;
-  @media screen and (max-width: 375px) {
-    margin: 2% 10px;
-  }
-  span {
-    margin: 10px 0;
-    font-weight: 800;
-  }
-  span:last-child {
+    height: 20%;
+    margin: 5% 0;
+    padding: 0 6%;
     font-size: 1.2rem;
   }
+  input:nth-child(3) {
+    height: 80%;
+  }
 `;
 
-const JoinBtn = styled(Link)`
-  background-color: #ffc000;
-  margin-top: 5%;
-  height: 80px;
-  border-radius: 10px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
+const UploadContentBox = styled.div`
+  button {
+    cursor: pointer;
+    margin-right: 5%;
+    width: 20%;
+    @media screen and (max-width: 768px) {
+      width: 35%;
+    }
+    height: 6vh;
+    border: 1px solid #ffc000;
+    border-radius: 35px;
+    color: #ffc000;
+    background-color: white;
+  }
+`;
+
+const UploadBtnLink = styled(Link)`
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  button {
+    cursor: pointer;
+    width: 70%;
+    height: 6vh;
+    border: 1px solid #ffc000;
+    border-radius: 35px;
+    color: #ffc000;
+    background-color: white;
+  }
 `;
 
-const JoinBtnBox = styled.div`
-  text-align: center;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 0 12%;
-`;
-
-function Ready() {
+function Upload() {
   const history = useHistory();
 
   const handleGoback = () => {
@@ -114,19 +109,19 @@ function Ready() {
         뒤로
       </GobackBtn>
       <DetailContentBox>
-        <div></div>
+        <input placeholder="제목"></input>
+        <UploadContentBox>
+          <button>이미지</button>
+          <button>GIF</button>
+        </UploadContentBox>
+        <input placeholder="내용"></input>
+        <input placeholder="태그"></input>
+        <UploadBtnLink to="/">
+          <button>등록</button>
+        </UploadBtnLink>
       </DetailContentBox>
-      <DetailDesc>
-        <span>코로나 뿌셔! 나랑 맞는 운동은?</span>
-        <span>나에게 맞는 운동은?</span>
-      </DetailDesc>
-      <JoinBtnBox>
-        <span>182명 참여중</span>
-        <JoinBtn to="/ready/choice">참여시작!</JoinBtn>
-      </JoinBtnBox>
     </Container>
-    // ! swap인지 choice인지 확인해야됨
   );
 }
 
-export default Ready;
+export default Upload;

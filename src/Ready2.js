@@ -54,6 +54,9 @@ const DetailDesc = styled.div`
   flex-direction: column;
   text-align: center;
   margin: 5% 10px;
+  @media screen and (max-width: 375px) {
+    margin: 2% 10px;
+  }
   span {
     margin: 10px 0;
     font-weight: 800;
@@ -78,16 +81,12 @@ const JoinBtn = styled(Link)`
 `;
 
 const JoinBtnBox = styled.div`
-  span {
-    margin-top: 5%;
-  }
   text-align: center;
   color: black;
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 0 12%;
-  margin-bottom: 10%;
 `;
 
 function Ready2() {
