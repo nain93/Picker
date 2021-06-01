@@ -8,7 +8,7 @@ const Container = styled.section`
   font-size: 1.5rem;
   background-color: white;
   height: 100%;
-  padding: 6%;
+  padding: 20px;
   @media screen and (min-width: 0px) {
     position: fixed;
     font-size: 1rem;

@@ -28,7 +28,7 @@ const LongContainer = styled.div`
 `;
 
 const Container = styled.section`
-  padding: 6%;
+  padding: 20px;
 `;
 
 const GobackBtn = styled.button`

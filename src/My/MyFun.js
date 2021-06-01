@@ -13,7 +13,7 @@ const Container = styled.section`
   background-color: white;
   height: 100%;
   font-size: 1.5rem;
-  padding: 6%;
+  padding: 20px;
   @media screen and (min-width: 0px) {
     font-size: 1rem;
     button {

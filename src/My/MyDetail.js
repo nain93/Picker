@@ -43,8 +43,8 @@ const GobackBtn = styled.button`
   border: none;
   background-color: inherit;
   width: 100%;
-  padding: 0 6%;
-  margin: 6% 0;
+  padding: 0 20px;
+  margin: 4% 0;
   color: #ffc000;
   display: flex;
   align-items: center;
