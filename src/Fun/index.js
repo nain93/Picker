@@ -110,7 +110,6 @@ const MorePickBtn = styled.button`
   margin: 5% 0px;
   font-weight: 600;
   font-size: 1.2rem;
-  grid-column: 1;
 `;
 
 const Divider = styled.div`

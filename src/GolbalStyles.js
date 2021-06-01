@@ -9,6 +9,8 @@ const GlobalStyles = createGlobalStyle`
     font-weight: normal;
     font-style: normal;
     }
+
+
     a{
         text-decoration:none;
         color:inherit

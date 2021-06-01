@@ -221,7 +221,7 @@ const GridDesc = styled.div`
 function Home() {
   const [pickTopCount, setPickTopCount] = useState(1);
   const [pickBottomCount, setPickBottomCount] = useState(1);
-  const [clickMenu, setClickMenu] = useState("");
+  const [clickMenu, setClickMenu] = useState("All");
 
   const handleMorePickTop = () => {
     if (pickTopCount === 3) {

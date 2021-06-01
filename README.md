@@ -6,3 +6,4 @@ react-icons
 react-tinder-card
 swiper
 scss
+react-modal

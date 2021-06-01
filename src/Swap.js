@@ -11,15 +11,26 @@ const Container = styled.section`
   height: 100%;
   padding: 20px;
 
-  @media screen and (max-width: 1024px) {
-    position: static;
-  }
-  @media screen and (max-width: 767px) {
+  @media screen and (min-width: 0px) {
     position: fixed;
+    font-size: 1rem;
+    button {
+      font-size: 1rem;
+    }
   }
-  @media screen and (max-width: 320px) {
+  @media screen and (min-width: 321px) {
     position: fixed;
     font-size: 1.5rem;
+    button {
+      font-size: 1.2rem;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    position: static;
+    font-size: 1.5rem;
+    button {
+      font-size: 1.5rem;
+    }
   }
 `;
 

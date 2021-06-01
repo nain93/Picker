@@ -112,7 +112,7 @@ const BannerImgBox = styled.img`
 const SettingLink = styled(Link)`
   border: none;
   margin: 3% 0px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   @media screen and (max-width: 320px) {
     font-size: 1.2rem;
   }
@@ -169,10 +169,10 @@ function My() {
             <Link to="/my/mydetail">
               <span>내역</span>
             </Link>
-            <Link>
+            <Link to="/my/mypick">
               <span>MY PICK</span>
             </Link>
-            <Link>
+            <Link to="/my/myfun">
               <span>MY FUN</span>
             </Link>
           </GridBtnBox>

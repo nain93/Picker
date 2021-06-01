@@ -14,6 +14,8 @@ import Upload from "./Fun/Upload";
 import Exchange from "./My/Exchange";
 import Charge from "./My/Charge";
 import MyDetail from "./My/MyDetail";
+import MyPick from "./My/MyPick";
+import MyFun from "./My/MyFun";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route path="/my/exchange" component={Exchange} />
           <Route path="/my/charge" component={Charge} />
           <Route path="/my/mydetail" component={MyDetail} />
+          <Route path="/my/mypick" component={MyPick} />
+          <Route path="/my/myfun" component={MyFun} />
           <Route path="/ready" exact component={Ready} />
           <Route path="/ready2" exact component={Ready2} />
           <Route path="/ready/swap" component={Swap} />
