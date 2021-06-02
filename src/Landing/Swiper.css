@@ -1,0 +1,32 @@
+.swiper-container {
+  position: static;
+}
+.swiper-pagination-bullets {
+  bottom: 35% !important;
+}
+.swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+}
+.swiper-pagination-bullet-active {
+  background-color: white;
+}
+@media screen and (max-width: 420px) {
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+  }
+  .swiper-pagination-bullets {
+    bottom: 38% !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+  }
+  .swiper-pagination-bullets {
+    bottom: 37.5% !important;
+  }
+}

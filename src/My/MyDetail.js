@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { IoIosArrowBack } from "react-icons/io";
 import { BsFiles } from "react-icons/bs";
 import { RiVipCrown2Fill } from "react-icons/ri";
 import { Link, useHistory } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
 import { BsPlusCircleFill } from "react-icons/bs";
 
 const Container = styled.section`

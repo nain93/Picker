@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
-import Nav from "./Nav";
+import Nav from "../Nav";
 import { BiShare } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import bannerImg from "./img/banner.png";
+import bannerImg from "../img/banner.png";
+import axios from "axios";
+import { noticeApi } from "../apis/api";
 
 const LongContainer = styled.div`
   display: flex;
@@ -218,7 +220,7 @@ const GridDesc = styled.div`
 `;
 //! page2 css
 
-function Home() {
+function Now() {
   const [pickTopCount, setPickTopCount] = useState(1);
   const [pickBottomCount, setPickBottomCount] = useState(1);
   const [clickMenu, setClickMenu] = useState("All");
@@ -239,10 +241,97 @@ function Home() {
     setPickBottomCount((pickCount) => pickCount + 1);
   };
 
-  const handleFilterClick = (e) => {
+  const handleFilterClick = async (e) => {
     const { value } = e.target;
     setClickMenu(value);
+    //! 버튼클릭 api
+    if (noticeApi) {
+      try {
+        if (noticeApi) {
+          const data = await noticeApi.getData();
+          console.log(data);
+        }
+      } catch (e) {
+        console.log(e);
+      } finally {
+      }
+    }
   };
+
+  const rest = {
+    Authentication: "V4PdyMyGWxlrWQYmB6bi",
+    Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
+  };
+
+  const headers = {
+    // "Content-Type": "application/json",
+    Authentication: "V4PdyMyGWxlrWQYmB6bi",
+    Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
+  };
+  const getData = async () => {
+    const data = await axios.post("https://pickn.sucon.kr/", null, {
+      headers: {
+        Authentication: "V4PdyMyGWxlrWQYmB6bi",
+        Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
+      },
+    });
+
+    // const data2 = await axios({
+    //   method: "post",
+    //   url: "https://pickn.sucon.kr",
+    //   headers: {
+    //     Authentication: "V4PdyMyGWxlrWQYmB6bi",
+    //     Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
+    //   },
+    //   withCredentials: true,
+    // });
+
+    // const data = await axios({
+    //   method: "post",
+    //   url: "https://pickn.sucon.kr",
+    //   headers: {
+    //     Authentication: "V4PdyMyGWxlrWQYmB6bi",
+    //     Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
+    //   },
+    //   data: {
+    //     params: {
+    //       page: 0,
+    //       count: 10,
+    //       lang: 0,
+    //     },
+    //     method: "PickRegList",
+    //   },
+    // });
+    console.log(data);
+  };
+
+  // const getData = useCallback(async () => {
+  //   const data = await fetch("https://pickn.sucon.kr/", {
+  //     method: "POST",
+  //     headers: {
+  //       Authentication: "V4PdyMyGWxlrWQYmB6bi",
+  //       Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
+  //     },
+  //   });
+  //   console.log(data, "dd");
+  // }, []);
+  const getSearch = useCallback(async () => {
+    if (noticeApi) {
+      try {
+        if (noticeApi) {
+          const data = await noticeApi.getData();
+          console.log(data);
+        }
+      } catch (e) {
+        console.log(e);
+      } finally {
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <>
       <LongContainer>
@@ -432,4 +521,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Now;

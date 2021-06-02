@@ -1,7 +1,6 @@
 import GlobalStyles from "./GolbalStyles";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Swap from "./Swap";
-import Home from "./Home";
 import Ready from "./Ready";
 import Choice from "./Choice";
 import Result from "./Result";
@@ -16,6 +15,9 @@ import Charge from "./My/Charge";
 import MyDetail from "./My/MyDetail";
 import MyPick from "./My/MyPick";
 import MyFun from "./My/MyFun";
+import Now from "./Now";
+import Landing from "./Landing";
+import Nickname from "./Landing/Nickname";
 
 function App() {
   return (
@@ -23,7 +25,9 @@ function App() {
       <GlobalStyles />
       <Router>
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={Landing} />
+          <Route path="/nickname" component={Nickname} />
+          <Route path="/now" exact component={Now} />
           <Route path="/fun" component={Fun} />
           <Route path="/upload" component={Upload} />
           <Route path="/my" exact component={My} />

@@ -7,3 +7,4 @@ react-tinder-card
 swiper
 scss
 react-modal
+axios
