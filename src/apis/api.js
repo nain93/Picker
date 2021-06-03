@@ -1,11 +1,15 @@
 import axios from "axios";
 
 const api = axios.create({
+<<<<<<< Updated upstream
   baseURL: "http://localhost:3000",
   headers: {
     Authentication: "V4PdyMyGWxlrWQYmB6bi",
     Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
   },
+=======
+  baseURL: "https://pickn.sucon.kr",
+>>>>>>> Stashed changes
 });
 
 export const noticeApi = {
@@ -23,5 +27,10 @@ export const noticeApi = {
       },
       withCredentials: true,
     }),
-  getData: () => api.post("https://pickn.sucon.kr"),
+  getData: () => {
+    api.defaults.headers.common["Authentication"] = "V4PdyMyGWxlrWQYmB6bi";
+    api.defaults.headers.common["Wallet"] =
+      "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY";
+    return api.post("/", null, { withCredentials: true });
+  },
 };
