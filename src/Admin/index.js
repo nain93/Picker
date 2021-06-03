@@ -7,6 +7,22 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   background-color: #ffc000;
+  input,
+  button {
+    font-size: 2rem;
+  }
+  @media screen and (max-width: 1024px) {
+    input,
+    button {
+      font-size: 1.5rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    input,
+    button {
+      font-size: 1rem;
+    }
+  }
 `;
 
 const Title = styled.h1`
@@ -14,13 +30,18 @@ const Title = styled.h1`
   text-align: center;
   color: #4f4f4f;
   font-size: 6rem;
+  margin: 1.5% 0px;
+  @media screen and (max-width: 1024px) {
+    font-size: 2.5rem;
+    margin: 8% 0px;
+  }
   @media screen and (max-width: 768px) {
     font-size: 2.5rem;
+    margin: 10% 0px;
   }
   @media screen and (max-width: 320px) {
     font-size: 2rem;
   }
-  margin: 1.5% 0px;
 `;
 
 const ImgBox = styled.div`
@@ -37,11 +58,10 @@ const ImgBox = styled.div`
     }
     @media screen and (max-width: 768px) {
       width: 30%;
-      margin-top: 8%;
+      margin-top: 15%;
     }
     @media screen and (max-width: 320px) {
       width: 40%;
-      margin-top: 10%;
     }
   }
 `;
@@ -64,7 +84,6 @@ const InputBox = styled.form`
     outline: none;
     margin-bottom: 2%;
     line-height: 30px;
-    font-size: 2rem;
     color: #ffc000;
     ::placeholder {
       color: #ffc000;
@@ -75,10 +94,12 @@ const InputBox = styled.form`
       width: 40%;
     }
     @media screen and (max-width: 768px) {
-      width: 50%;
+      width: 60%;
+      height: 8vh;
+      margin-bottom: 5%;
     }
     @media screen and (max-width: 320px) {
-      width: 60%;
+      margin-bottom: 5%;
     }
   }
   button {
@@ -86,6 +107,10 @@ const InputBox = styled.form`
     color: white;
     background-color: #ffc000;
     border: 1px solid white;
+
+    @media screen and (max-width: 1024px) {
+      margin-top: 5%;
+    }
   }
 `;
 

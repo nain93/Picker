@@ -343,12 +343,12 @@ function Home() {
               <p>+1,008 (7days)</p>
             </div>
           </DetailHeader>
-          <Chart
+          {/* <Chart
             options={options.options}
             series={options.series}
             type="bar"
             width="500"
-          />
+          /> */}
         </Detail>
       </DetailBox>
     </Container>
