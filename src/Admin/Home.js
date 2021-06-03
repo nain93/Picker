@@ -59,10 +59,11 @@ const ImgBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 6%;
+  margin-top: 10%;
 
   img {
     width: 35%;
+    margin-bottom: 3%;
   }
 `;
 
@@ -70,7 +71,7 @@ const Title = styled.h1`
   width: 100%;
   text-align: center;
   color: #4f4f4f;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-family: "yg-jalnan";
   @media screen and (max-width: 1024px) {
     font-size: 2rem;
