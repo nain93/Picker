@@ -8,3 +8,4 @@ swiper
 scss
 react-modal
 axios
+react-apexcharts, apexcharts

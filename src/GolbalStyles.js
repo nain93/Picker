@@ -33,28 +33,23 @@ const GlobalStyles = createGlobalStyle`
     button {font-family: 'yg-jalnan',sans-serif}
     #root section{
         max-width: 720px;
-        /* height: 100%; */
         width: 100%;
         margin: 0 auto;
     }
-        @media screen and (min-width:0px){
-      
-
-        }
         @media screen and (min-width:320px) {
             #root{
                 height:100%;
             }
-            body{
+            /* body{
                 padding:0px;
                 height:100%;
-            }
+            } */
         }
         @media screen and (min-width:768px) {
-            body{
+            /* body{
                 padding: 0 200px;
                 height: 100vh;
-            }
+            } */
             #root{
                 height:100vh;
             }

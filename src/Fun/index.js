@@ -36,10 +36,7 @@ const Container = styled.section`
 
 const Title = styled.h1`
   color: #ffc000;
-  font-size: 1.5rem;
-  @media screen and (max-width: 320px) {
-    font-size: 1rem;
-  }
+
   margin: 10% 0px;
 `;
 

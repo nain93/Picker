@@ -1,11 +1,10 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Nav from "../Nav";
 import { BiShare } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import bannerImg from "../img/banner.png";
-import axios from "axios";
 import { noticeApi } from "../apis/api";
 
 const LongContainer = styled.div`
@@ -33,10 +32,7 @@ const Container = styled.section`
 
 const Title = styled.h1`
   color: black;
-  font-size: 1.5rem;
-  @media screen and (max-width: 320px) {
-    font-size: 1rem;
-  }
+
   margin: 10% 0px;
 `;
 
@@ -244,11 +240,10 @@ function Now() {
   const handleFilterClick = async (e) => {
     const { value } = e.target;
     setClickMenu(value);
-    //! 버튼클릭 api
     if (noticeApi) {
       try {
         if (noticeApi) {
-          const data = await noticeApi.getData();
+          const data = await noticeApi.getNotice();
           console.log(data);
         }
       } catch (e) {
@@ -258,86 +253,18 @@ function Now() {
     }
   };
 
-  const rest = {
-    Authentication: "V4PdyMyGWxlrWQYmB6bi",
-    Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
-  };
-
-  const headers = {
-    // "Content-Type": "application/json",
-    Authentication: "V4PdyMyGWxlrWQYmB6bi",
-    Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
-  };
-  const getData = async () => {
-    const data = await axios.post("https://pickn.sucon.kr/", null, {
-      headers: {
-        Authentication: "V4PdyMyGWxlrWQYmB6bi",
-        Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
-      },
-    });
-
-    // const data2 = await axios({
-    //   method: "post",
-    //   url: "https://pickn.sucon.kr",
-    //   headers: {
-    //     Authentication: "V4PdyMyGWxlrWQYmB6bi",
-    //     Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
-    //   },
-    //   withCredentials: true,
-    // });
-
-    // const data = await axios({
-    //   method: "post",
-    //   url: "https://pickn.sucon.kr",
-    //   headers: {
-    //     Authentication: "V4PdyMyGWxlrWQYmB6bi",
-    //     Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
-    //   },
-    //   data: {
-    //     params: {
-    //       page: 0,
-    //       count: 10,
-    //       lang: 0,
-    //     },
-    //     method: "PickRegList",
-    //   },
-    // });
-    console.log(data);
-  };
-
-  // const getData = useCallback(async () => {
-  //   const data = await fetch("https://pickn.sucon.kr/", {
-  //     method: "POST",
-  //     headers: {
-  //       Authentication: "V4PdyMyGWxlrWQYmB6bi",
-  //       Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
-  //     },
-  //   });
-  //   console.log(data, "dd");
-  // }, []);
-  const getSearch = useCallback(async () => {
-    if (noticeApi) {
-      try {
-        if (noticeApi) {
-          const data = await noticeApi.getData();
-          console.log(data);
-        }
-      } catch (e) {
-        console.log(e);
-      } finally {
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    getData();
-  }, []);
+  useEffect(() => {}, []);
   return (
     <>
       <LongContainer>
         <Nav />
         <Container>
           <Title>지금 떠오르는 PICK!</Title>
+          <Link to="/admin">
+            <Title style={{ color: "green" }}>
+              대시보드 페이지로 이동 {">"}
+            </Title>
+          </Link>
           <MainBox>
             <Link to="/">
               <MainContent>
@@ -346,7 +273,6 @@ function Now() {
                   <div>
                     <FaHeart />
                     <span>1,456</span>
-
                     <BiShare />
                     <span>150</span>
                   </div>

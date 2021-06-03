@@ -112,10 +112,7 @@ const BannerImgBox = styled.img`
 const SettingLink = styled(Link)`
   border: none;
   margin: 3% 0px;
-  font-size: 1.5rem;
-  @media screen and (max-width: 320px) {
-    font-size: 1.2rem;
-  }
+
   background-color: inherit;
   width: 100%;
   color: #ffc000;

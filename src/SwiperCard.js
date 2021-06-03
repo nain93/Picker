@@ -51,8 +51,6 @@ function SwiperCard() {
     <SwiperStyle
       spaceBetween={20}
       slidesPerView={swiperSetting.slidesPerView}
-      navigation
-      pagination={{ clickable: true }}
       loop={true}
       autoplay={{ delay: 1000 }}
     >
