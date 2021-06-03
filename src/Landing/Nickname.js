@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.section`
@@ -17,10 +17,10 @@ const Container = styled.section`
   }
   @media screen and (min-width: 321px) {
     position: fixed;
-    font-size: 1.5rem;
+    font-size: 1rem;
     button,
     input {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
   }
   @media screen and (min-width: 768px) {

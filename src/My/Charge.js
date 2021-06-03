@@ -19,12 +19,6 @@ const LongContainer = styled.div`
     }
     font-size: 1rem;
   }
-  @media screen and (max-width: 320px) {
-    button {
-      font-size: 0.6rem;
-    }
-    font-size: 0.6rem;
-  }
 `;
 
 const Container = styled.section`
@@ -37,7 +31,6 @@ const GobackBtn = styled.button`
   width: 100%;
   padding: 0;
   margin-bottom: 10%;
-  font-size: 1.5rem;
   font-weight: 600;
   color: #ffc000;
   display: flex;
@@ -122,6 +115,9 @@ const AdBtnBox = styled.div`
     border: none;
     background-color: #ffc000;
     color: white;
+    @media screen and (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 `;
 

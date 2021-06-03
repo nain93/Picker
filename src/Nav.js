@@ -7,15 +7,16 @@ const Container = styled.div`
   max-width: 720px;
   width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   font-size: 1.5rem;
   @media screen and (max-width: 768px) {
     font-size: 1rem;
+    padding: 20px;
   }
   @media screen and (max-width: 320px) {
-    font-size: 0.6rem;
+    padding: 20px;
   }
   position: sticky;
   top: 0;

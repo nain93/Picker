@@ -18,12 +18,6 @@ const LongContainer = styled.div`
     }
     font-size: 1rem;
   }
-  @media screen and (max-width: 320px) {
-    button {
-      font-size: 0.6rem;
-    }
-    font-size: 0.6rem;
-  }
 `;
 
 const Container = styled.section`
@@ -126,6 +120,9 @@ const MorePickBtn = styled.button`
   border-radius: 15px;
   color: #fc913a;
   width: 70%;
+  @media screen and (max-width: 320px) {
+    width: 80%;
+  }
   height: 5vh;
   background-color: white;
   cursor: pointer;
@@ -253,95 +250,7 @@ function Now() {
     }
   };
 
-<<<<<<< Updated upstream
   useEffect(() => {}, []);
-=======
-  const rest = {
-    Authentication: "V4PdyMyGWxlrWQYmB6bi",
-    Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
-  };
-
-  const headers = {
-    // "Content-Type": "application/json",
-    Authentication: "V4PdyMyGWxlrWQYmB6bi",
-    Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
-  };
-  const getData = async () => {
-    const data = await axios.post("/", null, {
-      headers: {
-        Authentication: "V4PdyMyGWxlrWQYmB6bi",
-        Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
-      },
-      withCredentials: true,
-    });
-
-    // const data2 = await axios({
-    //   method: "post",
-    //   url: "https://pickn.sucon.kr",
-    //   headers: {
-    //     Authentication: "V4PdyMyGWxlrWQYmB6bi",
-    //     Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
-    //   },
-    //   withCredentials: true,
-    // });
-
-    // const data = await axios({
-    //   method: "post",
-    //   url: "https://pickn.sucon.kr",
-    //   headers: {
-    //     Authentication: "V4PdyMyGWxlrWQYmB6bi",
-    //     Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
-    //   },
-    //   data: {
-    //     params: {
-    //       page: 0,
-    //       count: 10,
-    //       lang: 0,
-    //     },
-    //     method: "PickRegList",
-    //   },
-    // });
-    console.log(data);
-  };
-
-  // const getData = useCallback(async () => {
-  //   const data = await fetch("https://pickn.sucon.kr/", {
-  //     method: "POST",
-  //     headers: {
-  //       Authentication: "V4PdyMyGWxlrWQYmB6bi",
-  //       Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
-  //     },
-  //   });
-  //   console.log(data, "dd");
-  // }, []);
-  const getSearch = useCallback(async () => {
-    if (noticeApi) {
-      try {
-        if (noticeApi) {
-          const data = await noticeApi.getData();
-          console.log(data);
-        }
-      } catch (e) {
-        console.log(e);
-      } finally {
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    const getData = async () => {
-      const data = await axios.post("/", "", {
-        headers: {
-          Authentication: "V4PdyMyGWxlrWQYmB6bi",
-          Wallet: "SWiWPaYyatSqVFTY81GmWbmUY7sSGk6avZyaeC2rVYzUcRbY",
-        },
-        withCredentials: true,
-      });
-      console.log(data);
-    };
-    getData();
-  }, []);
->>>>>>> Stashed changes
   return (
     <>
       <LongContainer>

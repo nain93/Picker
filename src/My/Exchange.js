@@ -9,11 +9,11 @@ const Container = styled.section`
   height: 100%;
   padding: 20px;
   @media screen and (min-width: 0px) {
-    font-size: 0.8rem;
+    font-size: 1rem;
     button,
     input,
     select {
-      font-size: 0.8rem;
+      font-size: 1rem;
     }
   }
   @media screen and (min-width: 321px) {

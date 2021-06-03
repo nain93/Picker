@@ -47,9 +47,5 @@
     ]
   },
   "homepage": ".",
-<<<<<<< Updated upstream
   "proxy": "https://pickn.sucon.kr"
-=======
-  "proxy": "https://pickn.sucon.kr/"
->>>>>>> Stashed changes
 }

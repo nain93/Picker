@@ -6,6 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { BsPeopleCircle } from "react-icons/bs";
 import { HiOutlineLogout } from "react-icons/hi";
 import Chart from "react-apexcharts";
+import { useCallback } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -215,24 +216,35 @@ const DetailHeader = styled.div`
 function Home() {
   const [openBar, setOpenBar] = useState(false);
   const [dayTerm, setDayTerm] = useState([]);
-  let today = new Date();
 
-  useEffect(() => {
-    for (let i = 0; i < 15; i++) {
-      var afterDay = new Date(today.setDate(today.getDate() + 1));
-      let afterDayMonth = afterDay.getMonth() + 1;
-      let afterDayDate = afterDay.getDate();
-      setDayTerm([dayTerm.push(`${afterDayMonth}.${afterDayDate}`)]);
-    }
-    console.log(dayTerm);
-  }, []);
+  let today = new Date();
+  var afterDay = new Date(today.setDate(today.getDate() + 1));
+  let afterDayMonth = afterDay.getMonth() + 1;
+  let afterDayDate = afterDay.getDate();
+  let newDay = `${afterDayMonth}.${afterDayDate}`;
+  // useEffect(() => {
+  //   const calday = async () => {
+  //     for (let i = 0; i < 15; i++) {
+  //       var afterDay = new Date(today.setDate(today.getDate() + 1));
+  //       let afterDayMonth = afterDay.getMonth() + 1;
+  //       let afterDayDate = afterDay.getDate();
+  //       let newDay = `${afterDayMonth}.${afterDayDate}`;
+  //       setDayTerm((dayTerm) => {
+  //         const day = [...dayTerm, Number(newDay)];
+  //         return day;
+  //       });
+  //     }
+  //   };
+  //   calday();
+  // }, []);
+
   const [options, setOptions] = useState({
     options: {
       chart: {
         id: "basic-bar",
       },
       xaxis: {
-        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+        categories: [newDay],
       },
     },
     series: [
@@ -261,6 +273,7 @@ function Home() {
   };
   return (
     <Container>
+      {console.log(options)}
       <MenuBar>
         <ImgBox>
           <img src={logo} alt="logo" />
@@ -344,12 +357,12 @@ function Home() {
               <p>+1,008 (7days)</p>
             </div>
           </DetailHeader>
-          {/* <Chart
+          <Chart
             options={options.options}
             series={options.series}
             type="bar"
             width="500"
-          /> */}
+          />
         </Detail>
       </DetailBox>
     </Container>

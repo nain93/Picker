@@ -22,12 +22,6 @@ const LongContainer = styled.div`
     }
     font-size: 1rem;
   }
-  @media screen and (max-width: 320px) {
-    button {
-      font-size: 0.6rem;
-    }
-    font-size: 0.6rem;
-  }
 `;
 
 const Container = styled.section`
@@ -101,6 +95,10 @@ const MorePickBtn = styled.button`
   border-radius: 15px;
   color: #ffc000;
   width: 70%;
+  @media screen and (max-width: 320px) {
+    width: 80%;
+  }
+
   height: 5vh;
   background-color: white;
   cursor: pointer;
