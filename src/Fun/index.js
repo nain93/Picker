@@ -306,7 +306,7 @@ function Fun() {
             <OtherContentBox>
               {initialData.funItem2.result.map((item, idx) => (
                 <OtherContentLink
-                  to="/"
+                  to={`/fun/${item.id}`}
                   style={{ backgroundImage: `url(${item.img})` }}
                   key={idx}
                 >
