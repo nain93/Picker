@@ -20,6 +20,7 @@ import Landing from "./Landing";
 import Nickname from "./Landing/Nickname";
 import Admin from "./Admin/index";
 import Home from "./Admin/Home";
+import FunDetail from "./Fun/FunDetail";
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
           <Route path="/adminhome" component={Home} />
           <Route path="/nickname" component={Nickname} />
           <Route path="/now" exact component={Now} />
-          <Route path="/fun" component={Fun} />
+          <Route path="/fun" exact component={Fun} />
+          <Route path="/fun/:id" component={FunDetail} />
           <Route path="/upload" component={Upload} />
           <Route path="/my" exact component={My} />
           <Route path="/my/exchange" component={Exchange} />
@@ -40,10 +42,10 @@ function App() {
           <Route path="/my/mydetail" component={MyDetail} />
           <Route path="/my/mypick" component={MyPick} />
           <Route path="/my/myfun" component={MyFun} />
-          <Route path="/ready" exact component={Ready} />
-          <Route path="/ready2" exact component={Ready2} />
-          <Route path="/ready/swap" component={Swap} />
-          <Route path="/ready/choice" component={Choice} />
+          <Route path="/ready/:id" exact component={Ready} />
+          <Route path="/ready2/:id" exact component={Ready2} />
+          <Route path="/ready/choice/:id" component={Choice} />
+          <Route path="/ready2/swap/:id" component={Swap} />
           <Route path="/result" component={Result} />
           <Route path="/resultAll" component={ResultAll} />
           <Route component={PageNotFound} />

@@ -19,6 +19,12 @@ const LongContainer = styled.div`
     }
     font-size: 1rem;
   }
+  @media screen and (max-width: 320px) {
+    button {
+      font-size: 0.8rem;
+    }
+    font-size: 0.8rem;
+  }
 `;
 
 const Container = styled.section`

@@ -1,7 +1,7 @@
 import React from "react";
 
 function PageNotFound() {
-  return <div style={{ color: "black" }}>페이지 준비중</div>;
+  return <div style={{ color: "black" }}>404 Not Found</div>;
 }
 
 export default PageNotFound;

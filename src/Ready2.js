@@ -1,8 +1,9 @@
 import React from "react";
 import { IoIosArrowBack } from "react-icons/io";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { initialData } from "./data/initialData";
 
 const Container = styled.section`
   font-size: 1.5rem;
@@ -11,9 +12,9 @@ const Container = styled.section`
   padding: 20px;
   @media screen and (min-width: 0px) {
     position: fixed;
-    font-size: 1rem;
+    font-size: 0.8rem;
     button {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
   }
   @media screen and (min-width: 321px) {
@@ -52,11 +53,12 @@ const DetailContentBox = styled.div`
   }
   padding: 0 12%;
   div {
-    border: 1px solid black;
     width: 100%;
     height: 100%;
     margin-top: 10%;
     border-radius: 15px;
+    background-size: cover;
+    background-position: center center;
   }
 `;
 
@@ -103,6 +105,7 @@ const JoinBtnBox = styled.div`
 
 function Ready2() {
   const history = useHistory();
+  const { id } = useParams();
 
   const handleGoback = () => {
     history.goBack(1);
@@ -115,15 +118,19 @@ function Ready2() {
         뒤로
       </GobackBtn>
       <DetailContentBox>
-        <div></div>
+        <div
+          style={{
+            backgroundImage: `url(${initialData.funItem2.result[1].img})`,
+          }}
+        ></div>
       </DetailContentBox>
       <DetailDesc>
-        <span>코로나 뿌셔! 나랑 맞는 운동은?</span>
+        <span>{initialData.funItem2.result[1].title}</span>
         <span>나에게 맞는 운동은?</span>
       </DetailDesc>
       <JoinBtnBox>
         <span>182명 참여중</span>
-        <JoinBtn to="/ready/swap">참여시작!</JoinBtn>
+        <JoinBtn to={`/ready2/swap/${id}`}>참여시작!</JoinBtn>
       </JoinBtnBox>
     </Container>
     // ! swap인지 choice인지 확인해야됨

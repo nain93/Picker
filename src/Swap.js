@@ -4,6 +4,7 @@ import styled from "styled-components";
 import TinderCard from "react-tinder-card";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
+import { initialData } from "./data/initialData";
 
 const Container = styled.section`
   background-color: #ffc000;
@@ -78,6 +79,8 @@ const Tinder = styled.div`
   margin: 0 auto;
   border-radius: 20px;
   background-color: white;
+  background-position: center center;
+  background-size: cover;
 `;
 
 const Count = styled.div`
@@ -153,11 +156,11 @@ const db = [
 ];
 
 const alreadyRemoved = [];
-let charactersState = db;
+let charactersState = initialData.swapItems.result;
 
 function Swap() {
   const [countPage, setCountPage] = useState(1);
-  const [characters, setCharacters] = useState(db);
+  const [characters, setCharacters] = useState(initialData.swapItems.result);
   const [lastDirection, setLastDirection] = useState();
   const [swaping, setSwaping] = useState(false);
   const history = useHistory();
@@ -169,7 +172,7 @@ function Swap() {
 
   const childRefs = useMemo(
     () =>
-      Array(db.length)
+      Array(initialData.swapItems.result.length)
         .fill(0)
         .map((i) => React.createRef()),
     []
@@ -180,7 +183,9 @@ function Swap() {
     );
     if (cardsLeft.length) {
       const toBeRemoved = cardsLeft[cardsLeft.length - 1].name; // Find the card object to be removed
-      const index = db.map((person) => person.name).indexOf(toBeRemoved); // Find the index of which to make the reference to
+      const index = initialData.swapItems.result
+        .map((person) => person.name)
+        .indexOf(toBeRemoved); // Find the index of which to make the reference to
       alreadyRemoved.push(toBeRemoved); // Make sure the next card gets removed next time if this card do not have time to exit the screen
       childRefs[index].current.swipe(dir);
     }
@@ -241,8 +246,11 @@ function Swap() {
             onSwipe={(dir) => swiped(dir, character.name)}
             onCardLeftScreen={() => outOfFrame(character.name)}
           >
-            <Tinder className="card">
-              <h3>{character.name}</h3>
+            <Tinder
+              className="card"
+              style={{ backgroundImage: `url(${character.img})` }}
+            >
+              {/* <h3>{character.name}</h3> */}
             </Tinder>
           </TinderCard>
         ))}

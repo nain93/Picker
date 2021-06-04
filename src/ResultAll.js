@@ -302,7 +302,7 @@ function ResultAll() {
       </DetailContentBox>
 
       <JoinBtnBox style={moreClick ? { marginTop: "8%" } : { marginTop: "4%" }}>
-        <JoinBtn to="/">다른 PICK 해보기</JoinBtn>
+        <JoinBtn to="/now">다른 PICK 해보기</JoinBtn>
       </JoinBtnBox>
     </Container>
   );

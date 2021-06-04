@@ -5,10 +5,13 @@ import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 // import "swiper/components/pagination/pagination.scss";
 import "swiper/swiper.scss";
 import styled from "styled-components";
+import { initialData } from "./data/initialData";
 
 const SwiperStyle = styled(Swiper)`
   color: "black";
   height: 25vh;
+  border-radius: 15px;
+
   @media screen and (max-width: 320px) {
     width: 50%;
   }
@@ -53,47 +56,22 @@ function SwiperCard() {
       slidesPerView={swiperSetting.slidesPerView}
       loop={true}
       autoplay={{ delay: 1000 }}
+      // scrollbar={props.scrollbar ? { draggable: true } : ""}
+      // pagination={props.pagination ? { clickable: true } : ""}
     >
-      <SwiperSlide
-        style={{
-          backgroundColor: "#FFC000",
-          color: "black",
-          borderRadius: "15px",
-          cursor: "pointer",
-        }}
-      >
-        Slide 1
-      </SwiperSlide>
-      <SwiperSlide
-        style={{
-          backgroundColor: "#FFC000",
-          color: "black",
-          borderRadius: "15px",
-          cursor: "pointer",
-        }}
-      >
-        Slide 2
-      </SwiperSlide>
-      <SwiperSlide
-        style={{
-          backgroundColor: "#FFC000",
-          color: "black",
-          borderRadius: "15px",
-          cursor: "pointer",
-        }}
-      >
-        Slide 3
-      </SwiperSlide>
-      <SwiperSlide
-        style={{
-          backgroundColor: "#FFC000",
-          color: "black",
-          borderRadius: "15px",
-          cursor: "pointer",
-        }}
-      >
-        Slide 4
-      </SwiperSlide>
+      {initialData.funItem1.result.map((item, idx) => (
+        <SwiperSlide
+          key={idx}
+          style={{
+            backgroundImage: `url(${item.img})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            color: "black",
+            borderRadius: "15px",
+            cursor: "pointer",
+          }}
+        ></SwiperSlide>
+      ))}
     </SwiperStyle>
   );
 }

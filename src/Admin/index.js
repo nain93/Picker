@@ -23,6 +23,13 @@ const Container = styled.div`
       font-size: 1rem;
     }
   }
+  @media screen and (max-width: 768px) {
+    button,
+    input {
+      font-size: 0.8rem;
+    }
+    font-size: 0.8rem;
+  }
 `;
 
 const Title = styled.h1`

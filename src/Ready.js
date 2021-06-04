@@ -1,8 +1,9 @@
 import React from "react";
 import { IoIosArrowBack } from "react-icons/io";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { initialData } from "./data/initialData";
 
 const Container = styled.section`
   font-size: 1.5rem;
@@ -18,9 +19,9 @@ const Container = styled.section`
   }
   @media screen and (min-width: 321px) {
     position: fixed;
-    font-size: 1.5rem;
+    font-size: 1rem;
     button {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
   }
   @media screen and (min-width: 768px) {
@@ -52,11 +53,13 @@ const DetailContentBox = styled.div`
   }
   padding: 0 12%;
   div {
-    border: 1px solid black;
     width: 100%;
     height: 100%;
     margin-top: 10%;
     border-radius: 15px;
+    background-image: url(${(props) => props.bgurl});
+    background-position: center center;
+    background-size: cover;
   }
 `;
 
@@ -80,8 +83,8 @@ const DetailDesc = styled.div`
 
 const JoinBtn = styled(Link)`
   background-color: #ffc000;
-  margin-top: 5%;
-  height: 80px;
+  margin-top: 10%;
+  height: 10vh;
   border-radius: 10px;
   border: none;
   font-weight: 600;
@@ -102,6 +105,7 @@ const JoinBtnBox = styled.div`
 
 function Ready() {
   const history = useHistory();
+  const { id } = useParams();
 
   const handleGoback = () => {
     history.goBack(1);
@@ -114,15 +118,19 @@ function Ready() {
         뒤로
       </GobackBtn>
       <DetailContentBox>
-        <div></div>
+        <div
+          style={{
+            backgroundImage: `url(${initialData.funItem2.result[0].img})`,
+          }}
+        ></div>
       </DetailContentBox>
       <DetailDesc>
-        <span>코로나 뿌셔! 나랑 맞는 운동은?</span>
+        <span>{initialData.funItem2.result[0].title}</span>
         <span>나에게 맞는 운동은?</span>
       </DetailDesc>
       <JoinBtnBox>
         <span>182명 참여중</span>
-        <JoinBtn to="/ready/choice">참여시작!</JoinBtn>
+        <JoinBtn to={`/ready/choice/${id}`}>참여시작!</JoinBtn>
       </JoinBtnBox>
     </Container>
     // ! swap인지 choice인지 확인해야됨

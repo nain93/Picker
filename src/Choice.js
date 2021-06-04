@@ -17,9 +17,9 @@ const Container = styled.section`
   }
   @media screen and (min-width: 321px) {
     position: fixed;
-    font-size: 1.5rem;
+    font-size: 1rem;
     button {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
   }
   @media screen and (min-width: 768px) {
@@ -91,7 +91,6 @@ const PickBtnLink = styled(Link)`
   background-color: white;
   display: flex;
   justify-content: center;
-  font-size: 1.3rem;
   align-items: center;
 `;
 

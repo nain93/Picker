@@ -8,6 +8,7 @@ import bannerImg from "../img/banner.png";
 import SwiperCard from "../SwiperCard";
 import resultImg from "../img/result/result1.png";
 import { BsPencil } from "react-icons/bs";
+import { initialData } from "../data/initialData";
 
 const LongContainer = styled.div`
   display: flex;
@@ -21,6 +22,13 @@ const LongContainer = styled.div`
       font-size: 1rem;
     }
     font-size: 1rem;
+  }
+
+  @media screen and (max-width: 320px) {
+    button {
+      font-size: 0.8rem;
+    }
+    font-size: 0.8rem;
   }
 `;
 
@@ -52,8 +60,9 @@ const OtherContentLink = styled(Link)`
   border-radius: 15px;
   width: 48%;
   height: 30vh;
-  border: 1px solid black;
   position: relative;
+  background-size: cover;
+  background-position: center center;
 `;
 
 const OtherDesc = styled.div`
@@ -71,6 +80,10 @@ const OtherDesc = styled.div`
   position: absolute;
   bottom: 0;
   padding: 10px 6%;
+  @media screen and (max-width: 768px) {
+    padding: 10px 2%;
+  }
+
   span,
   svg {
     margin: 5px 0;
@@ -119,10 +132,23 @@ const BannerImgBox = styled.img`
   object-fit: cover;
 `;
 
-const ImgBox = styled.img`
+const ImgBox = styled(Link)`
+  width: 35%;
   height: 80%;
+  @media screen and (max-width: 1024px) {
+    height: 68%;
+  }
+
+  @media screen and (max-width: 768px) {
+    height: 65%;
+  }
+
+  @media screen and (max-width: 320px) {
+    height: 60%;
+  }
   border-radius: 15px;
-  object-fit: cover;
+  background-position: center center;
+  background-size: cover;
 `;
 
 const DetailContentBox = styled.div`
@@ -164,7 +190,12 @@ const Desc = styled.div`
     margin: 3% 0px;
     margin-right: 3%;
   }
-  span:last-child {
+  a {
+    margin: 3% 0px;
+    margin-right: 3%;
+  }
+
+  div span:last-child {
     color: rgba(0, 0, 0, 0.5);
   }
   @media screen and (max-width: 768px) {
@@ -233,8 +264,7 @@ const UploadLink = styled(Link)`
   align-items: center;
   font-size: 2.5rem;
   right: 25%;
-  @media screen and (max-width: 768px) {
-  }
+
   @media screen and (max-width: 415px) {
     font-size: 1.5rem;
     width: 60px;
@@ -274,52 +304,23 @@ function Fun() {
           <Title>지금 떠오르는 FUN!</Title>
           <MainBox>
             <OtherContentBox>
-              <OtherContentLink to="/">
-                <OtherDesc>
-                  <span>나의 연애 MBTI는..?</span>
-                  <div>
-                    <FaHeart />
-                    <span>1,456</span>
-                    <BiShare />
-                    <span>150</span>
-                  </div>
-                </OtherDesc>
-              </OtherContentLink>
-
-              <OtherContentLink to="/">
-                <OtherDesc>
-                  <span>이번엔 어떤 정책을?!</span>
-                  <div>
-                    <FaHeart />
-                    <span>1,456</span>
-                    <BiShare />
-                    <span>150</span>
-                  </div>
-                </OtherDesc>
-              </OtherContentLink>
-              <OtherContentLink to="/">
-                <OtherDesc>
-                  <span>나의 연애 MBTI는..?</span>
-                  <div>
-                    <FaHeart />
-                    <span>1,456</span>
-                    <BiShare />
-                    <span>150</span>
-                  </div>
-                </OtherDesc>
-              </OtherContentLink>
-
-              <OtherContentLink to="/">
-                <OtherDesc>
-                  <span>이번엔 어떤 정책을?!</span>
-                  <div>
-                    <FaHeart />
-                    <span>1,456</span>
-                    <BiShare />
-                    <span>150</span>
-                  </div>
-                </OtherDesc>
-              </OtherContentLink>
+              {initialData.funItem2.result.map((item, idx) => (
+                <OtherContentLink
+                  to="/"
+                  style={{ backgroundImage: `url(${item.img})` }}
+                  key={idx}
+                >
+                  <OtherDesc>
+                    <span>{item.title}</span>
+                    <div>
+                      <FaHeart />
+                      <span>{item.likes}</span>
+                      <BiShare />
+                      <span>{item.share}</span>
+                    </div>
+                  </OtherDesc>
+                </OtherContentLink>
+              ))}
             </OtherContentBox>
           </MainBox>
           <BtnBox>
@@ -337,107 +338,37 @@ function Fun() {
           <Title style={{ marginBottom: "2%" }}>이번엔 무슨 FUN?!</Title>
 
           <DetailContentBox>
-            <DetailItem>
-              <div>
-                <ImgBox src={resultImg} alt="result" />
-                <DescBox>
-                  <Desc>
-                    <span>동화 여우와 두루미의 결말</span>
-                    <div>
-                      <span>멋쟁이신사</span>
-                      <span>2021.05.22</span>
-                    </div>
-                  </Desc>
-
-                  <DescBtn>
-                    <button>
-                      <FaHeart />
-                      <span>188</span>
-                    </button>
-                    <button>
-                      <BiShare />
-                      <span>1,888</span>
-                    </button>
-                  </DescBtn>
-                </DescBox>
-              </div>
-            </DetailItem>
-            <DetailItem>
-              <div>
-                <ImgBox src={resultImg} alt="result" />
-                <DescBox>
-                  <Desc>
-                    <span>김대희의 밥묵자 역사상 최대 위기</span>
-                    <div>
-                      <span>웃고살자</span>
-                      <span>2021.05.22</span>
-                    </div>
-                  </Desc>
-
-                  <DescBtn>
-                    <button>
-                      <FaHeart />
-                      <span>188</span>
-                    </button>
-                    <button>
-                      <BiShare />
-                      <span>1,888</span>
-                    </button>
-                  </DescBtn>
-                </DescBox>
-              </div>
-            </DetailItem>
-
-            <DetailItem>
-              <div>
-                <ImgBox src={resultImg} alt="result" />
-                <DescBox>
-                  <Desc>
-                    <span>인간극장 레전드.. 두더지 포획</span>
-                    <div>
-                      <span>룰루랄라</span>
-                      <span>2021.05.22</span>
-                    </div>
-                  </Desc>
-
-                  <DescBtn>
-                    <button>
-                      <FaHeart />
-                      <span>188</span>
-                    </button>
-                    <button>
-                      <BiShare />
-                      <span>1,888</span>
-                    </button>
-                  </DescBtn>
-                </DescBox>
-              </div>
-            </DetailItem>
-            <DetailItem>
-              <div>
-                <ImgBox src={resultImg} alt="result" />
-                <DescBox>
-                  <Desc>
-                    <span>라면 매니아들이 인정하는 의외</span>
-                    <div>
-                      <span>멋쟁이신사</span>
-                      <span>2021.05.22</span>
-                    </div>
-                  </Desc>
-
-                  <DescBtn>
-                    <button>
-                      <FaHeart />
-                      <span>1,888</span>
-                    </button>
-                    <button>
-                      <BiShare />
-                      <span>188</span>
-                    </button>
-                  </DescBtn>
-                </DescBox>
-              </div>
-            </DetailItem>
+            {initialData.funItem3.result.map((item, idx) => (
+              <DetailItem key={idx}>
+                <div>
+                  <ImgBox
+                    to={`/fun/${item.id}`}
+                    style={{ backgroundImage: `url(${item.img})` }}
+                  />
+                  <DescBox>
+                    <Desc>
+                      <Link to={`/fun/${item.id}`}>
+                        <span>{item.title}</span>
+                      </Link>
+                      <div>
+                        <span>{item.nickname}</span>
+                        <span>{item.update}</span>
+                      </div>
+                    </Desc>
+                    <DescBtn>
+                      <button>
+                        <FaHeart />
+                        <span>{item.likes}</span>
+                      </button>
+                      <button>
+                        <BiShare />
+                        <span>{item.share}</span>
+                      </button>
+                    </DescBtn>
+                  </DescBox>
+                </div>
+              </DetailItem>
+            ))}
           </DetailContentBox>
 
           <BtnBox>

@@ -1,23 +1,52 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { RiVipCrown2Fill } from "react-icons/ri";
 import { BiShare } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa";
 import SwiperCard from "./SwiperCard";
+import { initialData } from "./data/initialData";
+import { IoIosArrowBack } from "react-icons/io";
 
 const LongContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   font-size: 1.5rem;
-  @media screen and (max-width: 450px) {
+
+  @media screen and (min-width: 0px) {
     font-size: 1rem;
+    button {
+      font-size: 1rem;
+    }
+  }
+  @media screen and (min-width: 321px) {
+    font-size: 1rem;
+    button {
+      font-size: 1rem;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 1.5rem;
+    button {
+      font-size: 1.5rem;
+    }
   }
 `;
 
 const Container = styled.section`
-  padding: 0 20px;
+  padding: 20px;
+`;
+
+const GobackBtn = styled.button`
+  border: none;
+  background-color: inherit;
+  width: 100%;
+  font-weight: 600;
+  color: black;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 `;
 
 const Title = styled.h1`
@@ -35,11 +64,12 @@ const MainContent = styled.div`
   }
   padding: 0 12%;
   div {
-    border: 1px solid black;
     width: 100%;
     height: 100%;
     margin-top: 10%;
     border-radius: 15px;
+    background-size: cover;
+    background-position: center center;
   }
 `;
 
@@ -192,11 +222,12 @@ const RecommonContent = styled.div`
   }
   padding: 0 12%;
   div {
-    border: 1px solid black;
     width: 100%;
     height: 100%;
     margin-top: 10%;
     border-radius: 15px;
+    background-position: center center;
+    background-size: cover;
   }
 `;
 
@@ -209,70 +240,85 @@ const SlideHeader = styled.div`
 
 //! page3 css
 function Result() {
+  const history = useHistory();
+
+  const handleGoback = () => {
+    history.goBack(1);
+  };
   return (
-    <>
-      <LongContainer>
-        <Container>
-          <Title>나에게 맞는 운동은?</Title>
-          <DescBox>
-            <span>집중 기초체력 키우기</span>
-            <span>전체 참여자 중 ()%이 같은 결과입니다.</span>
-          </DescBox>
-          <MainContent>
-            <div></div>
-          </MainContent>
+    <LongContainer>
+      <Container>
+        <GobackBtn onClick={handleGoback}>
+          <IoIosArrowBack />
+          뒤로
+        </GobackBtn>
+        <Title>나에게 맞는 운동은?</Title>
+        <DescBox>
+          <span>집중 기초체력 키우기</span>
+          <span>전체 참여자 중 ()%이 같은 결과입니다.</span>
+        </DescBox>
+        <MainContent>
+          <div
+            style={{
+              backgroundImage: `url(${initialData.funItem2.result[0].img})`,
+            }}
+          ></div>
+        </MainContent>
 
-          <ResultBox>
-            <span>당신의 결과는 설명과 같습니다</span>
-            <span>당신의 결과는 설명과 같습니다</span>
-            <span>당신의 결과는 설명과 같습니다</span>
-          </ResultBox>
-        </Container>
-        <AwardContainer>
-          <RiVipCrown2Fill style={{ color: "#FFC000", fontSize: "2.5rem" }} />
-          <AwardBox>
-            <span>이번 PICK으로 PKT를 모았습니다!</span>
-            <span>좋아요나 공유하면 PKT를 더 모을 수 있어요!</span>
-          </AwardBox>
-          <ReactBtnBox>
-            <button>
-              <FaHeart />
-              좋아요
-              <span>172</span>
-            </button>
-            <button>
-              <BiShare />
-              공유
-              <span>12</span>
-            </button>
-          </ReactBtnBox>
-          <BtnBox>
-            <ResultBtnBox to="/resultAll">
-              <span>다른 결과 확인</span>
-            </ResultBtnBox>
-          </BtnBox>
-        </AwardContainer>
+        <ResultBox>
+          <span>당신의 결과는 설명과 같습니다</span>
+          <span>당신의 결과는 설명과 같습니다</span>
+          <span>당신의 결과는 설명과 같습니다</span>
+        </ResultBox>
+      </Container>
+      <AwardContainer>
+        <RiVipCrown2Fill style={{ color: "#FFC000", fontSize: "2.5rem" }} />
+        <AwardBox>
+          <span>이번 PICK으로 PKT를 모았습니다!</span>
+          <span>좋아요나 공유하면 PKT를 더 모을 수 있어요!</span>
+        </AwardBox>
+        <ReactBtnBox>
+          <button>
+            <FaHeart />
+            좋아요
+            <span>172</span>
+          </button>
+          <button>
+            <BiShare />
+            공유
+            <span>12</span>
+          </button>
+        </ReactBtnBox>
+        <BtnBox>
+          <ResultBtnBox to="/resultAll">
+            <span>다른 결과 확인</span>
+          </ResultBtnBox>
+        </BtnBox>
+      </AwardContainer>
 
-        <Container>
-          <Title>추천</Title>
-          <RecommonContent>
-            <div></div>
-          </RecommonContent>
+      <Container>
+        <Title>추천</Title>
+        <RecommonContent>
+          <div
+            style={{
+              backgroundImage: `url(${initialData.funItem1.result[3].img})`,
+            }}
+          ></div>
+        </RecommonContent>
 
-          <SlideHeader>
-            <span>이번엔?! 무슨 PICK</span>
-          </SlideHeader>
+        <SlideHeader>
+          <span>이번엔?! 무슨 PICK</span>
+        </SlideHeader>
 
-          <SwiperCard />
+        <SwiperCard />
 
-          <BtnBox>
-            <MorePickBtn to="/">
-              <span>다른 PICK 해보기</span>
-            </MorePickBtn>
-          </BtnBox>
-        </Container>
-      </LongContainer>
-    </>
+        <BtnBox>
+          <MorePickBtn to="/now">
+            <span>다른 PICK 해보기</span>
+          </MorePickBtn>
+        </BtnBox>
+      </Container>
+    </LongContainer>
   );
 }
 

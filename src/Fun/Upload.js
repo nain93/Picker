@@ -84,6 +84,7 @@ const UploadBtnLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 5% 0;
   button {
     cursor: pointer;
     width: 70%;

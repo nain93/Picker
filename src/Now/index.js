@@ -6,6 +6,7 @@ import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import bannerImg from "../img/banner.png";
 import { noticeApi } from "../apis/api";
+import { initialData } from "../data/initialData";
 
 const LongContainer = styled.div`
   display: flex;
@@ -17,6 +18,12 @@ const LongContainer = styled.div`
       font-size: 1rem;
     }
     font-size: 1rem;
+  }
+  @media screen and (max-width: 320px) {
+    button {
+      font-size: 0.8rem;
+    }
+    font-size: 0.8rem;
   }
 `;
 
@@ -33,12 +40,14 @@ const Title = styled.h1`
 const MainBox = styled.div``;
 
 const MainContent = styled.div`
-  border: 1px solid black;
   height: 30vh;
   border-radius: 15px;
   width: 100%;
   margin: 0 auto;
   position: relative;
+  background-image: url(${(props) => props.bgurl});
+  background-position: center center;
+  background-size: cover;
 `;
 
 const MainDesc = styled.div`
@@ -78,7 +87,9 @@ const OtherContentLink = styled(Link)`
   border-radius: 15px;
   width: 48%;
   height: 30vh;
-  border: 1px solid black;
+  background-image: url(${(props) => props.bgurl});
+  background-position: center center;
+  background-size: cover;
 `;
 
 const OtherDesc = styled.div`
@@ -183,10 +194,15 @@ const GridContainer = styled.div`
     gap: 2px;
   }
   margin-top: 40px;
+  a {
+    background-image: url(${(props) => props.bgurl});
+    border-radius: 15px;
+
+    background-position: center center;
+    background-size: cover;
+  }
   > a div:nth-child(2n-1) {
     /* position: relative; */
-    border: 1px solid black;
-    border-radius: 15px;
     min-height: 250px;
   }
   > a:nth-child(3) {
@@ -251,6 +267,7 @@ function Now() {
   };
 
   useEffect(() => {}, []);
+
   return (
     <>
       <LongContainer>
@@ -263,8 +280,8 @@ function Now() {
             </Title>
           </Link>
           <MainBox>
-            <Link to="/">
-              <MainContent>
+            <Link to="/now">
+              <MainContent bgurl={initialData.funItem1.result[0].img}>
                 <MainDesc>
                   <span>내 안에 꼰대가??!</span>
                   <div>
@@ -278,7 +295,10 @@ function Now() {
             </Link>
 
             <OtherContentBox>
-              <OtherContentLink to="/">
+              <OtherContentLink
+                to="/now"
+                bgurl={initialData.funItem1.result[1].img}
+              >
                 <OtherDesc>
                   <span>나의 연애 MBTI는..?</span>
                   <div>
@@ -290,7 +310,10 @@ function Now() {
                 </OtherDesc>
               </OtherContentLink>
 
-              <OtherContentLink to="/">
+              <OtherContentLink
+                to="/now"
+                bgurl={initialData.funItem1.result[2].img}
+              >
                 <OtherDesc>
                   <span>이번엔 어떤 정책을?!</span>
                   <div>
@@ -377,61 +400,27 @@ function Now() {
             </MenuBtn>
           </MenuContainer>
           <GridContainer>
-            <Link to="/ready">
-              <GridLink>
-                테스트 카드 : 투표 준비화면으로 이동(일반선택)
-              </GridLink>
-            </Link>
-            <GridDesc>
-              <span>코로나 뿌셔! 무슨 운동?</span>
-              <div>
-                <FaHeart />
-                <span>1,456</span>
-                <BiShare />
-                <span>150</span>
-              </div>
-            </GridDesc>
-
-            <Link to="/ready2">
-              <GridLink>
-                테스트 카드 : 투표 준비화면으로 이동(스와이프선택)
-              </GridLink>
-            </Link>
-            <GridDesc>
-              <span>도움이 된, 헬스 핫템!</span>
-              <div>
-                <FaHeart />
-                <span>1,456</span>
-                <BiShare />
-                <span>150</span>
-              </div>
-            </GridDesc>
-
-            <Link to="/">
-              <GridLink>3</GridLink>
-            </Link>
-            <GridDesc>
-              <span>점심시간엔 무슨 운동?</span>
-              <div>
-                <FaHeart />
-                <span>1,456</span>
-                <BiShare />
-                <span>150</span>
-              </div>
-            </GridDesc>
-
-            <Link to="/">
-              <GridLink>4</GridLink>
-            </Link>
-            <GridDesc>
-              <span>헬린이! 구출 대작전</span>
-              <div>
-                <FaHeart />
-                <span>1,456</span>
-                <BiShare />
-                <span>150</span>
-              </div>
-            </GridDesc>
+            {initialData.funItem2.result.map((item, idx) => {
+              return (
+                <React.Fragment key={idx}>
+                  <Link
+                    to={`/ready${item.ready}/${item.id}`}
+                    style={{ backgroundImage: `url(${item.img})` }}
+                  >
+                    <GridLink>{item.test}</GridLink>
+                  </Link>
+                  <GridDesc>
+                    <span>{item.title}</span>
+                    <div>
+                      <FaHeart />
+                      <span>{item.likes}</span>
+                      <BiShare />
+                      <span>{item.share}</span>
+                    </div>
+                  </GridDesc>
+                </React.Fragment>
+              );
+            })}
           </GridContainer>
           <BtnBox>
             <MorePickBtn onClick={handleMorePickBottom}>
