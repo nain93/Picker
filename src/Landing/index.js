@@ -129,7 +129,7 @@ function Landing() {
         </SwiperSlide>
       </SwiperStyle>
       <WalletBtnBox>
-        <Link to="/later">나중에 월렛 생성하기</Link>
+        <Link to="/">나중에 월렛 생성하기</Link>
         <Link to="/nickname">지금 바로 월렛 연동</Link>
       </WalletBtnBox>
     </Container>
