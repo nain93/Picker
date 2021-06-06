@@ -9,3 +9,4 @@ scss
 react-modal
 axios
 react-apexcharts, apexcharts
+@reduxjs/toolkit react-redux

@@ -132,29 +132,6 @@ const TinderBox = styled.div`
   }
 `;
 
-const db = [
-  {
-    name: "1",
-    url: "./img/richard.jpg",
-  },
-  {
-    name: "2",
-    url: "./img/erlich.jpg",
-  },
-  {
-    name: "3",
-    url: "./img/monica.jpg",
-  },
-  {
-    name: "4",
-    url: "./img/jared.jpg",
-  },
-  {
-    name: "5",
-    url: "./img/dinesh.jpg",
-  },
-];
-
 const alreadyRemoved = [];
 let charactersState = initialData.swapItems.result;
 

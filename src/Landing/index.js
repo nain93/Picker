@@ -93,8 +93,8 @@ function Landing() {
       <SwiperStyle
         spaceBetween={20}
         slidesPerView={1}
-        // scrollbar={{ draggable: true }}
-        // pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        pagination={{ clickable: true }}
         loop={true}
       >
         <SwiperSlide
