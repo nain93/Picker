@@ -11,3 +11,4 @@ axios
 react-apexcharts, apexcharts
 react-copy-to-clipboard
 react-bootstrap
+@reduxjs/toolkit react-redux

@@ -145,7 +145,6 @@ const BtnBox = styled.div`
 const SwiperStyle = styled(Swiper)`
   color: "black";
   height: 50vh;
-  border-radius: 15px;
 `;
 
 //! page1 css
@@ -426,7 +425,6 @@ function FunDetail() {
                   backgroundSize: "cover",
                   backgroundPosition: "center center",
                   color: "black",
-                  borderRadius: "15px",
                   cursor: "pointer",
                 }}
               ></SwiperSlide>
