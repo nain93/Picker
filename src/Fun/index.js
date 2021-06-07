@@ -217,15 +217,12 @@ const Desc = styled.div`
 
 const DescBtn = styled.div`
   display: flex;
-  button {
+  div {
     display: flex;
     align-items: center;
     margin: 2% 0px;
     margin-right: 4%;
     padding: 0;
-    border: none;
-    background-color: inherit;
-    cursor: pointer;
   }
 
   svg {
@@ -335,8 +332,8 @@ function Fun() {
         <Container>
           <Title>또 찾아보는 FUN & FUN!</Title>
           <SwiperCard />
-          <Title style={{ marginBottom: "2%" }}>이번엔 무슨 FUN?!</Title>
 
+          <Title style={{ marginBottom: "2%" }}>이번엔 무슨 FUN?!</Title>
           <DetailContentBox>
             {initialData.funItem3.result.map((item, idx) => (
               <DetailItem key={idx}>
@@ -356,14 +353,14 @@ function Fun() {
                       </div>
                     </Desc>
                     <DescBtn>
-                      <button>
+                      <div>
                         <FaHeart />
                         <span>{item.likes}</span>
-                      </button>
-                      <button>
+                      </div>
+                      <div>
                         <BiShare />
                         <span>{item.share}</span>
-                      </button>
+                      </div>
                     </DescBtn>
                   </DescBox>
                 </div>

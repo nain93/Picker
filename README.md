@@ -9,3 +9,5 @@ scss
 react-modal
 axios
 react-apexcharts, apexcharts
+react-copy-to-clipboard
+react-bootstrap

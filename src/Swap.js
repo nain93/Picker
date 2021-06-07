@@ -192,6 +192,7 @@ function Swap() {
     return;
   };
   const swiped = (direction, nameToDelete) => {
+    console.log("hi");
     if (countPage === 5) {
       //todo 결과페이지로 이동
       return;
@@ -212,7 +213,6 @@ function Swap() {
   const handleLeftSwap = () => {
     if (countPage === 5) {
       //todo 결과페이지로 이동
-      console.log("return");
       return;
     }
     setSwaping(true);
@@ -222,7 +222,6 @@ function Swap() {
 
   const handleRightSwap = () => {
     if (countPage === 5) {
-      console.log("return");
       return;
     }
     setSwaping(true);
