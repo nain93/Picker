@@ -274,7 +274,7 @@ function Now() {
         <Nav />
         <Container>
           <Title>지금 떠오르는 PICK!</Title>
-          <Link to="/admin">
+          <Link to="/adminlogin">
             <Title style={{ color: "green" }}>
               대시보드 페이지로 이동 {">"}
             </Title>
