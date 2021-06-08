@@ -7,6 +7,9 @@ import "swiper/components/pagination/pagination.scss";
 import "swiper/swiper.scss";
 import "./Swiper.css";
 import { Link } from "react-router-dom";
+import children from "../img/initialData/children.jpg";
+import pick1 from "../img/initialData/pick1.jpg";
+import smart from "../img/initialData/smart.jpg";
 
 const Container = styled.section`
   font-size: 1.5rem;
@@ -99,37 +102,40 @@ function Landing() {
       >
         <SwiperSlide
           style={{
+            backgroundImage: `url(${smart})`,
+            backgroundPosition: "center center",
+            backgroundSize: "cover",
             backgroundColor: "white",
             color: "black",
             borderRadius: "35px",
             cursor: "pointer",
           }}
-        >
-          Slide 1
-        </SwiperSlide>
+        ></SwiperSlide>
         <SwiperSlide
           style={{
+            backgroundImage: `url(${children})`,
+            backgroundPosition: "center center",
+            backgroundSize: "cover",
             backgroundColor: "white",
             color: "black",
             borderRadius: "35px",
             cursor: "pointer",
           }}
-        >
-          Slide 2
-        </SwiperSlide>
+        ></SwiperSlide>
         <SwiperSlide
           style={{
+            backgroundImage: `url(${pick1})`,
+            backgroundPosition: "center center",
+            backgroundSize: "cover",
             backgroundColor: "white",
             color: "black",
             borderRadius: "35px",
             cursor: "pointer",
           }}
-        >
-          Slide 3
-        </SwiperSlide>
+        ></SwiperSlide>
       </SwiperStyle>
       <WalletBtnBox>
-        <Link to="/">나중에 월렛 생성하기</Link>
+        <Link to="/now">나중에 월렛 생성하기</Link>
         <Link to="/nickname">지금 바로 월렛 연동</Link>
       </WalletBtnBox>
     </Container>

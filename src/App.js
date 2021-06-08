@@ -19,8 +19,8 @@ import Now from "./Now";
 import Landing from "./Landing";
 import Nickname from "./Landing/Nickname";
 import Admin from "./Admin/index";
-import Home from "./Admin/Home";
 import FunDetail from "./Fun/FunDetail";
+import DashBoard from "./Admin/Dashboard";
 
 function App() {
   return (
@@ -29,8 +29,8 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={Landing} />
-          <Route path="/admin" component={Admin} />
-          <Route path="/adminhome" component={Home} />
+          <Route path="/adminlogin" component={Admin} />
+          <Route path="/admin" component={DashBoard} />
           <Route path="/nickname" component={Nickname} />
           <Route path="/now" exact component={Now} />
           <Route path="/fun" exact component={Fun} />

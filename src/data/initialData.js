@@ -9,6 +9,7 @@ export const initialData = {
         title: "내 안에 꼰대가??!",
         likes: 180,
         share: 60,
+        status: "승인대기",
       },
       {
         id: 2,
@@ -17,6 +18,7 @@ export const initialData = {
         title: "나의 연애 MBTI는..?",
         likes: 11,
         share: 24,
+        status: "진행중",
       },
       {
         id: 3,
@@ -25,6 +27,7 @@ export const initialData = {
         title: "이번엔 어떤 정책을?!",
         likes: 122,
         share: 10,
+        status: "거절",
       },
       {
         id: 4,
@@ -33,6 +36,7 @@ export const initialData = {
         title: "도움이 된, 헬스 핫템!",
         likes: 485,
         share: 23,
+        status: "종료",
       },
     ],
   },

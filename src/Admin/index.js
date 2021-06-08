@@ -144,7 +144,7 @@ function Admin() {
     }
     setIsLogin(true);
     setInputValue("");
-    push("/adminhome");
+    push("/admin");
     return;
   };
   return (
