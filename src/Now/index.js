@@ -274,11 +274,6 @@ function Now() {
         <Nav />
         <Container>
           <Title>지금 떠오르는 PICK!</Title>
-          <Link to="/adminlogin">
-            <Title style={{ color: "green" }}>
-              대시보드 페이지로 이동 {">"}
-            </Title>
-          </Link>
           <MainBox>
             <Link to="/now">
               <MainContent bgurl={initialData.funItem1.result[0].img}>
