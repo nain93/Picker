@@ -4,8 +4,8 @@ import { Link, useHistory } from "react-router-dom";
 import { RiVipCrown2Fill } from "react-icons/ri";
 import { BiShare } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa";
-import SwiperCard from "./SwiperCard";
-import { initialData } from "./data/initialData";
+import SwiperCard from "../SwiperCard";
+import { initialData } from "../data/initialData";
 import { IoIosArrowBack } from "react-icons/io";
 
 const LongContainer = styled.div`

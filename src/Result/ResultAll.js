@@ -3,7 +3,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import resultImg from "./img/result/result1.png";
+import resultImg from "../img/result/result1.png";
 
 const Container = styled.section`
   background-color: white;
