@@ -37,17 +37,20 @@ const Title = styled.h1`
   margin: 10% 0px;
 `;
 
-const MainBox = styled.div``;
-
-const MainContent = styled.div`
-  height: 30vh;
-  border-radius: 15px;
+const MainBox = styled.div`
+  height: 60vh;
   width: 100%;
-  margin: 0 auto;
-  position: relative;
-  background-image: url(${(props) => props.bgurl});
-  background-position: center center;
-  background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  > a {
+    width: 100%;
+  }
+  > a:first-child {
+    grid-row: 1;
+    grid-column: 1/3;
+  }
+  grid-gap: 20px;
 `;
 
 const MainDesc = styled.div`
@@ -74,26 +77,16 @@ const MainDesc = styled.div`
   }
 `;
 
-const OtherContentBox = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  flex-wrap: wrap;
-`;
-
-const OtherContentLink = styled(Link)`
-  margin-top: 5%;
+const ContentLink = styled(Link)`
   border-radius: 15px;
-  width: 48%;
-  height: 30vh;
   background-image: url(${(props) => props.bgurl});
   background-position: center center;
   background-size: cover;
+  position: relative;
 `;
 
-const OtherDesc = styled.div`
-  width: 48%;
+const Desc = styled.div`
+  width: 100%;
   height: 35%;
   @media screen and (max-width: 720px) {
     height: auto;
@@ -233,6 +226,7 @@ function Now() {
   const [pickTopCount, setPickTopCount] = useState(1);
   const [pickBottomCount, setPickBottomCount] = useState(1);
   const [clickMenu, setClickMenu] = useState("All");
+  const [dummyData, setDummyData] = useState([]);
 
   const handleMorePickTop = () => {
     if (pickTopCount === 3) {
@@ -266,7 +260,9 @@ function Now() {
     }
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setDummyData((dummyData) => [...dummyData, ...initialData.funItem1.result]);
+  }, []);
 
   return (
     <>
@@ -274,52 +270,55 @@ function Now() {
         <Nav />
         <Container>
           <Title>지금 떠오르는 PICK!</Title>
+
           <MainBox>
-            <Link to="/now">
-              <MainContent bgurl={initialData.funItem1.result[0].img}>
+            {dummyData.slice(0, 3).map((item) => (
+              <ContentLink to="/now" bgurl={item.img} key={item.id}>
                 <MainDesc>
-                  <span>내 안에 꼰대가??!</span>
+                  <span>{item.title}</span>
                   <div>
                     <FaHeart />
-                    <span>1,456</span>
+                    <span>{item.likes}</span>
                     <BiShare />
-                    <span>150</span>
+                    <span>{item.share}</span>
                   </div>
                 </MainDesc>
-              </MainContent>
-            </Link>
+              </ContentLink>
+            ))}
+            {/* <ContentLink to="/now" bgurl={initialData.funItem1.result[0].img}>
+              <MainDesc>
+                <span>내 안에 꼰대가??!</span>
+                <div>
+                  <FaHeart />
+                  <span>1,456</span>
+                  <BiShare />
+                  <span>150</span>
+                </div>
+              </MainDesc>
+            </ContentLink>
+            <ContentLink to="/now" bgurl={initialData.funItem1.result[1].img}>
+              <Desc>
+                <span>나의 연애 MBTI는..?</span>
+                <div>
+                  <FaHeart />
+                  <span>1,456</span>
+                  <BiShare />
+                  <span>150</span>
+                </div>
+              </Desc>
+            </ContentLink>
 
-            <OtherContentBox>
-              <OtherContentLink
-                to="/now"
-                bgurl={initialData.funItem1.result[1].img}
-              >
-                <OtherDesc>
-                  <span>나의 연애 MBTI는..?</span>
-                  <div>
-                    <FaHeart />
-                    <span>1,456</span>
-                    <BiShare />
-                    <span>150</span>
-                  </div>
-                </OtherDesc>
-              </OtherContentLink>
-
-              <OtherContentLink
-                to="/now"
-                bgurl={initialData.funItem1.result[2].img}
-              >
-                <OtherDesc>
-                  <span>이번엔 어떤 정책을?!</span>
-                  <div>
-                    <FaHeart />
-                    <span>1,456</span>
-                    <BiShare />
-                    <span>150</span>
-                  </div>
-                </OtherDesc>
-              </OtherContentLink>
-            </OtherContentBox>
+            <ContentLink to="/now" bgurl={initialData.funItem1.result[2].img}>
+              <Desc>
+                <span>이번엔 어떤 정책을?!</span>
+                <div>
+                  <FaHeart />
+                  <span>1,456</span>
+                  <BiShare />
+                  <span>150</span>
+                </div>
+              </Desc>
+            </ContentLink> */}
           </MainBox>
           <BtnBox>
             <MorePickBtn onClick={handleMorePickTop}>

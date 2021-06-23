@@ -5,7 +5,7 @@ export const initialData = {
       {
         id: 1,
         name: "캔디",
-        img: require("../img/initialData/candy.jpg").default,
+        img: "https://tp.rmoa.net/data/dapp/DJguqVH21XoyfcFoVRcBAi9VKuR5By.jpg",
         title: "내 안에 꼰대가??!",
         likes: 180,
         share: 60,

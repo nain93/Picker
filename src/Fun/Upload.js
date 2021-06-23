@@ -49,7 +49,6 @@ const DetailContentBox = styled.form`
   @media screen and (max-width: 320px) {
     height: 40%;
   }
-  padding: 0 4%;
   input {
     border: 1px solid black;
     width: 100%;
