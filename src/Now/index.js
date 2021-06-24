@@ -85,31 +85,6 @@ const ContentLink = styled(Link)`
   position: relative;
 `;
 
-const Desc = styled.div`
-  width: 100%;
-  height: 35%;
-  @media screen and (max-width: 720px) {
-    height: auto;
-  }
-
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 0 0 15px 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: absolute;
-  bottom: 0;
-  padding: 10px 3%;
-  span,
-  svg {
-    margin: 5px 0;
-    margin-right: 5px;
-  }
-  > div {
-    display: flex;
-  }
-`;
-
 const BtnBox = styled.div`
   width: 100%;
   border-radius: 15px;

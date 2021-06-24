@@ -6,7 +6,6 @@ import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import bannerImg from "../img/banner.png";
 import SwiperCard from "../SwiperCard";
-import resultImg from "../img/result/result1.png";
 import { BsPencil } from "react-icons/bs";
 import { initialData } from "../data/initialData";
 

@@ -218,7 +218,6 @@ const EndItem = styled.div`
 `;
 function MyPick() {
   const [isClick, setIsClick] = useState("전체");
-  const [adData, setAdData] = useState([]);
   const handleClick = (e) => {
     const { value } = e.target;
     setIsClick(value);
