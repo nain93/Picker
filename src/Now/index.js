@@ -201,7 +201,10 @@ function Now() {
   const [pickTopCount, setPickTopCount] = useState(1);
   const [pickBottomCount, setPickBottomCount] = useState(1);
   const [clickMenu, setClickMenu] = useState("All");
-  const [dummyData, setDummyData] = useState([]);
+  const [popularData, setPopularData] = useState([]);
+  const [filterData, setFilterData] = useState([
+    ...initialData.funItem2.result,
+  ]);
 
   const handleMorePickTop = () => {
     if (pickTopCount === 3) {
@@ -216,27 +219,38 @@ function Now() {
       setPickBottomCount(1);
       return;
     }
+    console.log(filterData);
+    setFilterData([...filterData]);
+
     setPickBottomCount((pickCount) => pickCount + 1);
   };
 
   const handleFilterClick = async (e) => {
     const { value } = e.target;
     setClickMenu(value);
-    if (noticeApi) {
-      try {
-        if (noticeApi) {
-          const data = await noticeApi.getNotice();
-          console.log(data);
-        }
-      } catch (e) {
-        console.log(e);
-      } finally {
-      }
+    if (value === "All") {
+      setFilterData([...initialData.funItem2.result]);
+      return;
+    }
+    if (value === "Exr") {
+      setFilterData([...initialData.funItem3.result]);
+      return;
+    }
+    if (value === "love") {
+      setFilterData([...initialData.funItem1.result]);
+      return;
+    }
+    if (value === "other") {
+      setFilterData([...initialData.funItem2.result]);
+      return;
     }
   };
 
   useEffect(() => {
-    setDummyData((dummyData) => [...dummyData, ...initialData.funItem1.result]);
+    setPopularData((dummyData) => [
+      ...dummyData,
+      ...initialData.funItem1.result,
+    ]);
   }, []);
 
   return (
@@ -247,53 +261,21 @@ function Now() {
           <Title>지금 떠오르는 PICK!</Title>
 
           <MainBox>
-            {dummyData.slice(0, 3).map((item) => (
-              <ContentLink to="/now" bgurl={item.img} key={item.id}>
-                <MainDesc>
-                  <span>{item.title}</span>
-                  <div>
-                    <FaHeart />
-                    <span>{item.likes}</span>
-                    <BiShare />
-                    <span>{item.share}</span>
-                  </div>
-                </MainDesc>
-              </ContentLink>
-            ))}
-            {/* <ContentLink to="/now" bgurl={initialData.funItem1.result[0].img}>
-              <MainDesc>
-                <span>내 안에 꼰대가??!</span>
-                <div>
-                  <FaHeart />
-                  <span>1,456</span>
-                  <BiShare />
-                  <span>150</span>
-                </div>
-              </MainDesc>
-            </ContentLink>
-            <ContentLink to="/now" bgurl={initialData.funItem1.result[1].img}>
-              <Desc>
-                <span>나의 연애 MBTI는..?</span>
-                <div>
-                  <FaHeart />
-                  <span>1,456</span>
-                  <BiShare />
-                  <span>150</span>
-                </div>
-              </Desc>
-            </ContentLink>
-
-            <ContentLink to="/now" bgurl={initialData.funItem1.result[2].img}>
-              <Desc>
-                <span>이번엔 어떤 정책을?!</span>
-                <div>
-                  <FaHeart />
-                  <span>1,456</span>
-                  <BiShare />
-                  <span>150</span>
-                </div>
-              </Desc>
-            </ContentLink> */}
+            {popularData
+              .slice(0 + 3 * (pickTopCount - 1), 3 * pickTopCount)
+              .map((item) => (
+                <ContentLink to="/now" bgurl={item.img} key={item.id}>
+                  <MainDesc>
+                    <span>{item.title}</span>
+                    <div>
+                      <FaHeart />
+                      <span>{item.likes}</span>
+                      <BiShare />
+                      <span>{item.share}</span>
+                    </div>
+                  </MainDesc>
+                </ContentLink>
+              ))}
           </MainBox>
           <BtnBox>
             <MorePickBtn onClick={handleMorePickTop}>
@@ -369,27 +351,29 @@ function Now() {
             </MenuBtn>
           </MenuContainer>
           <GridContainer>
-            {initialData.funItem2.result.map((item, idx) => {
-              return (
-                <React.Fragment key={idx}>
-                  <Link
-                    to={`/ready${item.ready}/${item.id}`}
-                    style={{ backgroundImage: `url(${item.img})` }}
-                  >
-                    <GridLink>{item.test}</GridLink>
-                  </Link>
-                  <GridDesc>
-                    <span>{item.title}</span>
-                    <div>
-                      <FaHeart />
-                      <span>{item.likes}</span>
-                      <BiShare />
-                      <span>{item.share}</span>
-                    </div>
-                  </GridDesc>
-                </React.Fragment>
-              );
-            })}
+            {filterData
+              .slice(0 + 4 * (pickBottomCount - 1), 4 * pickBottomCount)
+              .map((item) => {
+                return (
+                  <React.Fragment key={item.id}>
+                    <Link
+                      to={`/ready${item.ready}/${item.id}`}
+                      style={{ backgroundImage: `url(${item.img})` }}
+                    >
+                      <GridLink>{item.test}</GridLink>
+                    </Link>
+                    <GridDesc>
+                      <span>{item.title}</span>
+                      <div>
+                        <FaHeart />
+                        <span>{item.likes}</span>
+                        <BiShare />
+                        <span>{item.share}</span>
+                      </div>
+                    </GridDesc>
+                  </React.Fragment>
+                );
+              })}
           </GridContainer>
           <BtnBox>
             <MorePickBtn onClick={handleMorePickBottom}>
