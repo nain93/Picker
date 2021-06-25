@@ -5,7 +5,6 @@ import { BiShare } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import bannerImg from "../img/banner.png";
-import { noticeApi } from "../apis/api";
 import { initialData } from "../data/initialData";
 
 const LongContainer = styled.div`
@@ -225,7 +224,7 @@ function Now() {
     setPickBottomCount((pickCount) => pickCount + 1);
   };
 
-  const handleFilterClick = async (e) => {
+  const handleFilterClick = (e) => {
     const { value } = e.target;
     setClickMenu(value);
     if (value === "All") {
@@ -259,7 +258,6 @@ function Now() {
         <Nav />
         <Container>
           <Title>지금 떠오르는 PICK!</Title>
-
           <MainBox>
             {popularData
               .slice(0 + 3 * (pickTopCount - 1), 3 * pickTopCount)
